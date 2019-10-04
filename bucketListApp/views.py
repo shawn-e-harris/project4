@@ -18,3 +18,11 @@ class BucketListItemViewSet(viewsets.ModelViewSet):
     """    
     queryset = BucketListItem.objects.all()    
     serializer_class = BucketListItemSerializer
+
+class CheckListItemViewSet(viewsets.ModelViewSet):  
+    # below is a multiline string  
+    """    
+    API endpoint that allows users to be viewed or edited.    
+    """    
+    queryset = CheckListItem.objects.all()    
+    serializer_class = CheckListItemSerializer

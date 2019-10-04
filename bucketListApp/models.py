@@ -18,4 +18,4 @@ class CheckListItem(models.Model):
     checkListName = models.CharField(max_length=80)
     status = models.BooleanField()
     bucketListItem = models.ForeignKey(BucketListItem, on_delete=models.CASCADE, related_name="bucketListItems") #BucketListItem refers to class BucketListItem(must be above to read properly, casing does not matter, related name must be plural)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="users") #User refers to class User(must be above to read properly, casing does not matter, related name must be plural)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="users") #User refers to class User(must be above to read properly, casing does not matter, related name must be plural)

@@ -6,9 +6,9 @@ router = routers.DefaultRouter()
 # r is short for regular expression (regex)
 # similar to express's app.use("/issueitem/", someRouter)
 # trailing slashes are not necessary in django unless it's being called via AJAX
-router.register(r'user', views.UserViewSet)
-router.register(r'bucketlistitem', views.BucketListItemViewSet)
-router.register(r'checklistitem', views.BucketListItemViewSet)
+router.register('user', views.UserViewSet)
+router.register('bucketlistitem', views.BucketListItemViewSet)
+router.register('checklistitem', views.BucketListItemViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

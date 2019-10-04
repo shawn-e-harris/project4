@@ -13,6 +13,7 @@ const userPreview = (user) => (
     <option value={user.id}>{user.userName}</option>
 )
 
+
 const userList = (users, currentUserId, onChange) => (
     // <select value ={currentUserId} onChange={(evnt)=> onChange(evnt.target.value)}>
     <select value={currentUserId} onChange={(event) => onChange(event.target.value)}>
@@ -84,9 +85,11 @@ const saveUserToServer = (newUser) =>
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newUser)
     }
-  ).then(res => res.json())
-  .catch((e) => {
-      console.log(e)
+  ).then(res => {
+      console.log('saver user to server response', res)
+      res.json()})
+  .catch((error) => {
+      console.log(error)
   })
 
 class UserApp extends React.Component {
@@ -127,6 +130,7 @@ class UserApp extends React.Component {
     // }
 
     addNewUser = (newUserInfo) => {
+        // console.log('newuserinfo', newUserInfo)
         saveUserToServer(newUserInfo)
             .then(newUser => {
                 console.log(newUser)

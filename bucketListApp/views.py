@@ -1,7 +1,6 @@
 from rest_framework import viewsets    
-from .serializers import UserSerializer, BucketListItemSerializer    
-from .models import User, BucketListItem
-from datetime import datetime  
+from .serializers import UserSerializer, BucketListItemSerializer, CheckListItemSerializer
+from .models import User, BucketListItem, CheckListItem
 
 class UserViewSet(viewsets.ModelViewSet):  
     # below is a multiline string  

@@ -1,6 +1,7 @@
 import React from "react"
+import NewUserForm from "./NewUserForm"
 
-// this shows 1 user as option for select tag 
+// shows userName as option for select tag and stores id as value
 const userPreview = (user) => (
     <option value={user.id}>{user.userName}</option>
 )
@@ -12,41 +13,6 @@ const userList = (users, currentUserId, onChange) => (
         {users.map(userPreview)}
     </select>
 )
-
-// this is the class component that will set the state of the User component  
-class NewUserForm extends React.Component {
-    state = {
-        userName: "",
-        email: ""
-    }
-
-    handleInput = (event) => {
-        let newUser = { ...this.state };
-        newUser[event.target.name] = event.target.value;
-        this.setState(newUser)
-    }
-    
-    handleInput = (event) => {
-        let newUser = { ...this.state };
-        newUser[event.target.name] = event.target.value;
-        this.setState(newUser)
-    }
-
-    handleSubmit = (event) => {
-        event.preventDefault();
-        // change this.state of userName and email
-        this.props.addNewUser(this.state)
-        this.setState({ userName: "", email: "" })
-    }
-
-    render = () => (
-        <form onSubmit={this.handleSubmit}>
-            <input type="text" name="userName" value={this.state.userName} onChange={this.handleInput} placeholder="User Name" />
-            <input type="email" name="email" value={this.state.email} onChange={this.handleInput} placeholder="Email" />
-            <input type="submit" value="New User" />
-        </form>
-    )
-}
 
 // changed to add userNumber to match state in the App Component
 const testUsers =

@@ -1,11 +1,23 @@
 import React from 'react';
 import './App.css';
-import UserApp from "./userFolder/userApp"
+import UserApp from "./userFolder/UserApp"
 
-function App() {
-  return (
-    <UserApp />
-  );
+// import React, { Component } from 'react'
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <UserApp />
+      </div>
+    )
+  }
 }
 
-export default App;
+// function App() {
+//   return (
+//     <UserApp />
+//   );
+// }
+
+// export default App;

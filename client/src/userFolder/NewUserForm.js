@@ -1,7 +1,7 @@
 import React from "react"
 
 // this is the class component that will set the state of the User component  
-export default class NewUserForm extends Component {
+export default class NewUserForm extends React.Component {
     state = {
         userName: "",
         email: ""

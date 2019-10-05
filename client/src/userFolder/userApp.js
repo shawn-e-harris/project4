@@ -6,7 +6,7 @@ const userPreview = (user) => (
     <option value={user.id}>{user.userName}</option>
 )
 
-
+// 
 const userList = (users, currentUserId, onChange) => (
     // <select value ={currentUserId} onChange={(evnt)=> onChange(evnt.target.value)}>
     <select value={currentUserId} onChange={(event) => onChange(event.target.value)}>

@@ -1,23 +1,15 @@
 import React from 'react';
 import './App.css';
 import UserApp from "./userFolder/UserApp"
-
-// import React, { Component } from 'react'
+import BucketListItemApp from "./bucketListFolder/BucketListApp"
 
 export default class App extends React.Component {
   render() {
     return (
       <div>
         <UserApp />
+        <BucketListItemApp />
       </div>
     )
   }
 }
-
-// function App() {
-//   return (
-//     <UserApp />
-//   );
-// }
-
-// export default App;

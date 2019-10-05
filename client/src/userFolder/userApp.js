@@ -6,9 +6,8 @@ const userPreview = (user) => (
     <option value={user.id}>{user.userName}</option>
 )
 
-// 
+// changes value of UserId to match User selected
 const userList = (users, currentUserId, onChange) => (
-    // <select value ={currentUserId} onChange={(evnt)=> onChange(evnt.target.value)}>
     <select value={currentUserId} onChange={(event) => onChange(event.target.value)}>
         {users.map(userPreview)}
     </select>

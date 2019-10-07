@@ -18,7 +18,7 @@ class UserApp extends React.Component {
         // users: testUsers
         users: []
     }
-
+    // functon knows about state b/c it lives here
     getUsersFromServer = () => {
         Axios.get("/api/user/") //get prefix
             .then(res => {

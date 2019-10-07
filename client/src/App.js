@@ -9,8 +9,8 @@ export default class App extends React.Component {
     return (
       <div>
         <UserFunctions/>
-        <BucketListItemFunctions/>
-        <CheckListItemFunctions/>
+        {/* <BucketListItemFunctions/>
+        <CheckListItemFunctions/> */}
       </div>
     )
   }

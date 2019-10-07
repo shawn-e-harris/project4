@@ -7,24 +7,16 @@ export default class NewUserForm extends React.Component {
     state = {
         newUser: {
             userName: "",
-            email: ""
+            email: "",
+            redirectHome: false 
         }
-    }
-    
-    redirectHome = () => {
-        Axios.get("/api/user/") //get prefix
-            .then(res => {
-                this.setState({ users: res.data })
-            })// //create promise
-            .catch(error => {
-                console.log(error)
-            })
     }
 
     handleInput = (event) => {
         let newUser = { ...this.state.newUser };
         newUser[event.target.name] = event.target.value;
         this.setState({ newUser })
+        this.setState({ redirectHome: true })
     }
 
     handleSubmit = (event) => {
@@ -32,10 +24,12 @@ export default class NewUserForm extends React.Component {
         // calls post req to pass state of newUser
         // path, data that's being posted
         Axios.post("/api/user/", this.state.newUser)
-            .then(() => {
-                this.redirectHome()
-                console.log("posted")
-            })
+        .then(() => {
+            // props allows call from server
+            this.props.getUsersFromServer()
+        })
+        // this.state.redirectHome ?  Axios.get("/api/user/") : null
+
     }
 
     render = () => (

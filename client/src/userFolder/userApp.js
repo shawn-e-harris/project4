@@ -1,22 +1,14 @@
 import React from "react"
 import NewUserForm from "./NewUserForm"
-// import {getUsersFromServer} from "./UserAPICalls"
-import {userList} from "../importsFolder/functions"
-// import {saveUserToServer} from "../userFolder/UserAPICalls"
+import { userList } from "../importsFolder/functions"
 import Axios from "axios"
-
-// // test data for user
-// const testUsers = [
-// { id: 1, userName: "Shawn", email: "Shawn@SoftwareEngineer.com" },
-// { id: 2, userName: "Asha", email: "Asha@UXDesigner.com" },
-// ]
 
 export default class UserApp extends React.Component {
 
     state = {
         currentUser: 1,
-        // users: testUsers
-        users: []
+        users: [],
+        redirectHome: false
     }
     // functon knows about state b/c it lives here
     getUsersFromServer = () => {
@@ -32,19 +24,7 @@ export default class UserApp extends React.Component {
     componentDidMount = () => {
         this.getUsersFromServer()
         console.log(this.state.users)
-            // .then(users => {
-            //     this.setState({ users })
-            // })
     }
-
-    // addNewUser = () => {
-    //     fetch('/api/user/')
-    //     .then(res => res.json())
-    //         .then(users => {
-    //             console.log(users)
-    //             this.setState({users})
-    //         })
-    // }
 
     getCurrentUser = () =>
         // will also need to change .map in 
@@ -62,10 +42,12 @@ export default class UserApp extends React.Component {
     render = () => (
         <div className='container'>
             <aside className='sidebar'>
-                <NewUserForm addNewUser={this.addNewUser} />
+                <NewUserForm 
+                    addNewUser={this.addNewUser} 
+                    getUsersFromServer={this.getUsersFromServer}
+                />
             </aside>
             <article className='mainContent'>
-
                 <div>
                     <h1>Users</h1>
                     {userList(this.getAllUsers(), this.state.currentUser, this.setCurrentUser)}

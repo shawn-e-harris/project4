@@ -69,8 +69,8 @@ class CheckListItemApp extends React.Component {
 
     state = {
         currentCheckListItem: 1,
-        // checkListItems: testCheckListItems
-        checkListItems: []
+        checkListItems: testCheckListItems
+        // checkListItems: []
     }
 
     componentDidMount = () => {

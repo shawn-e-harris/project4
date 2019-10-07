@@ -69,8 +69,8 @@ class BucketListItemApp extends React.Component {
 
     state = {
         currentBucketListItem: 1,
-        // bucketListItems: testBucketListItems
-        bucketListItems: []
+        bucketListItems: testBucketListItems
+        // bucketListItems: []
     }
 
     componentDidMount = () => {
@@ -132,3 +132,34 @@ class BucketListItemApp extends React.Component {
 //  ONLY USE COLON (:id) TO SET SPECIFIC ROUTE
 
 export default BucketListItemApp;
+
+// // displays on screen issue id and description on 
+// const issuePreview = (issue) => (
+//     <li>
+//       {issue.id} - {issue.description}
+//     </li>
+//   )
+  
+//   // shows list of issues mapped as array
+//   const issueList = (issues) => (
+//     <ul>
+//       {issues.map(issuePreview)}
+//     </ul>
+//   )
+  
+//   // display list of user's email and issues
+//   const userIssueList = (user) => (
+//     <div>
+//       {user.email}
+//       {issueList(user.issues)}
+//     </div>
+//   )
+
+//   const issueDetails = (issue) => ( //() after => is for a function that only return JSX code, otherwise use {}
+//   <div>
+//     {issue.id} - {issue.description}
+//     <button>
+//       {issue.status ? "Close" : "Open"}
+//     </button>
+//   </div>
+// )

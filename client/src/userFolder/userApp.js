@@ -1,4 +1,5 @@
 import React from "react"
+import Axios from "axios"
 import NewUserForm from "./NewUserForm"
 
 // shows userName as option for select tag and stores id as value
@@ -27,33 +28,52 @@ const testUsers =
         id: 7,
         userName: "Asha",
         email: "Asha@UXDesigner.com",
-        // issues: [
-        //     { description: "a Joe test issue", id: 1, createdOn: "2019-09-27T15:05:18.180058Z" },
-        //     { description: "a Joe test issue 2", id: 2, createdOn: "2019-09-28T15:05:18.180058Z" },
-        //     { description: "a Joe test issue 3", id: 3, createdOn: "2019-09-29T15:05:18.180058Z" },
-        // ]
     }
 }
 
-const getUsersFromServer = () =>
-    fetch("/api/user/")
-        .then(res => res.json())
-            .then((users) => objectFromListById(users))
+// const getUsersFromServer = () =>
+//     fetch("/api/user/")
+//         .then(res => res.json())
+//             .then((users) => objectFromListById(users))
 
-const saveUserToServer = (newUser) =>
-    fetch('/api/user/',
-        {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(newUser)
-        }
-    ).then(res => {
-        console.log('saver user to server response', res)
-        res.json()
-    })
-        .catch((error) => {
+const getUsersFromServer = () => {
+    Axios.get("/api/user/") //get prefix
+        .then(res => res.json())// //create promise
+            // this.setState({ activities: results.data.allActivities })
+            // console.log(res.data)
+            // console.table(results.data.allActivities)
+        //})
+        .catch(error => {
             console.log(error)
         })
+}
+
+// const saveUserToServer = (newUser) =>
+//     fetch('/api/user/',
+//         {
+//             method: "POST",
+//             headers: { "Content-Type": "application/json" },
+//             body: JSON.stringify(newUser)
+//         }
+//     ).then(res => {
+//         console.log('save user to server response', res)
+//         res.json()
+//     })
+//         .catch((error) => {
+//             console.log(error)
+//         })
+
+Axios.post("/api/user", userName)
+            .then(results => {
+                this.setState({ userName: results.data.userName })
+                // console.log('save user to server response', res)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    
+
+
 
 const objectFromListById = (users) =>
     //convert from an array of user objects to an
@@ -69,23 +89,27 @@ class UserApp extends React.Component {
 
     state = {
         currentUser: 1,
-        // users: testUsers
-        users: []
+        users: testUsers
+        // users: []
     }
 
-    componentDidMount = () => {
-        getUsersFromServer()
-            .then(users => {
-                this.setState({ users })
-            })
+    // componentDidMount = () => {
+    //     getUsersFromServer()
+    //         .then(users => {
+    //             this.setState({ users })
+    //         })
+    // }
+
+    componentDidMount() {
+        this.getUsersFromServer();
     }
 
-    getNextUserId = () =>
-        Math.max(...this.getAllUsers().map(user => user.id)) + 1
+    // getNextUserId = () =>
+    //     Math.max(...this.getAllUsers().map(user => user.id)) + 1
 
     addNewUser = (newUserInfo) => {
         // console.log('newuserinfo', newUserInfo)
-        saveUserToServer(newUserInfo)
+        this.saveUserToServer(newUserInfo)
             .then(newUser => {
                 console.log(newUser)
                 // newUser.issues = [];
@@ -100,13 +124,11 @@ class UserApp extends React.Component {
     }
 
     getCurrentUser = () =>
-        // instead of calling {userIssueList(this.state.user[this.state.currentUser]) this helps to reduce redundancy
         // will also need to change .map in 
         this.state.users[this.state.currentUser]
 
 
     getAllUsers = () =>
-        // eliminates need for {userList(testUsers)}
         Object.values(this.state.users)
 
 

@@ -1,8 +1,9 @@
 import React from "react"
 import NewUserForm from "./NewUserForm"
-import {getUsersFromServer} from "./UserAPICalls"
+// import {getUsersFromServer} from "./UserAPICalls"
 import {userList} from "../importsFolder/functions"
 import {saveUserToServer} from "../userFolder/UserAPICalls"
+import Axios from "axios"
 
 // test data for user
 const testUsers = [
@@ -14,15 +15,26 @@ class UserApp extends React.Component {
 
     state = {
         currentUser: 1,
-        users: testUsers
+        // users: testUsers
+        users: []
     }
 
+    getUsersFromServer = () => {
+        Axios.get("/api/user/") //get prefix
+            .then(res => {
+                this.setState({ users: res.data })
+            })// //create promise
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
     componentDidMount = () => {
-        getUsersFromServer()
-            .then(users => {
-                this.setState({ users })
-            })
+        this.getUsersFromServer()
+        console.log(this.state.users)
+            // .then(users => {
+            //     this.setState({ users })
+            // })
     }
 
     // componentDidMount() {
@@ -32,20 +44,29 @@ class UserApp extends React.Component {
     // getNextUserId = () =>
     //     Math.max(...this.getAllUsers().map(user => user.id)) + 1
 
-    addNewUser = (newUserInfo) => {
-        // console.log('newuserinfo', newUserInfo)
-        return saveUserToServer(newUserInfo)
-            .then(newUser => {
-                console.log(newUser)
-                // newUser.issues = [];
-                //newUser.id = this.getNextUserId();
+    // addNewUser = (newUserInfo) => {
+    //     // console.log('newuserinfo', newUserInfo)
+    //     return saveUserToServer(newUserInfo)
+    //         .then(newUser => {
+    //             console.log(newUser)
+    //             // newUser.issues = [];
+    //             //newUser.id = this.getNextUserId();
 
-                let users = { ...this.state.users }
-                // console.log(users)
+    //             let users = { ...this.state.users }
+    //             // console.log(users)
 
-                users[newUser.id] = newUser;
+    //             users[newUser.id] = newUser;
 
-                this.setState({ users, currentUser: newUser.id });
+    //             this.setState({ users, currentUser: newUser.id });
+    //         })
+    // }
+
+    addNewUser = () => {
+        fetch('/api/user/')
+        .then(res => res.json())
+            .then(users => {
+                console.log(users)
+                this.setState({users})
             })
     }
 

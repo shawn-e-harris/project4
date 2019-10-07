@@ -2,16 +2,16 @@ import React from "react"
 import NewUserForm from "./NewUserForm"
 // import {getUsersFromServer} from "./UserAPICalls"
 import {userList} from "../importsFolder/functions"
-import {saveUserToServer} from "../userFolder/UserAPICalls"
+// import {saveUserToServer} from "../userFolder/UserAPICalls"
 import Axios from "axios"
 
-// test data for user
-const testUsers = [
-{ id: 1, userName: "Shawn", email: "Shawn@SoftwareEngineer.com" },
-{ id: 2, userName: "Asha", email: "Asha@UXDesigner.com" },
-]
+// // test data for user
+// const testUsers = [
+// { id: 1, userName: "Shawn", email: "Shawn@SoftwareEngineer.com" },
+// { id: 2, userName: "Asha", email: "Asha@UXDesigner.com" },
+// ]
 
-class UserApp extends React.Component {
+export default class UserApp extends React.Component {
 
     state = {
         currentUser: 1,
@@ -37,38 +37,14 @@ class UserApp extends React.Component {
             // })
     }
 
-    // componentDidMount() {
-    //     this.getUsersFromServer();
-    // }
-
-    // getNextUserId = () =>
-    //     Math.max(...this.getAllUsers().map(user => user.id)) + 1
-
-    // addNewUser = (newUserInfo) => {
-    //     // console.log('newuserinfo', newUserInfo)
-    //     return saveUserToServer(newUserInfo)
-    //         .then(newUser => {
-    //             console.log(newUser)
-    //             // newUser.issues = [];
-    //             //newUser.id = this.getNextUserId();
-
-    //             let users = { ...this.state.users }
-    //             // console.log(users)
-
-    //             users[newUser.id] = newUser;
-
-    //             this.setState({ users, currentUser: newUser.id });
+    // addNewUser = () => {
+    //     fetch('/api/user/')
+    //     .then(res => res.json())
+    //         .then(users => {
+    //             console.log(users)
+    //             this.setState({users})
     //         })
     // }
-
-    addNewUser = () => {
-        fetch('/api/user/')
-        .then(res => res.json())
-            .then(users => {
-                console.log(users)
-                this.setState({users})
-            })
-    }
 
     getCurrentUser = () =>
         // will also need to change .map in 
@@ -99,5 +75,3 @@ class UserApp extends React.Component {
     )
 }
 // //  ONLY USE COLON (:id) TO SET SPECIFIC ROUTE
-
-export default UserApp;

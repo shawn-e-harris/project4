@@ -1,6 +1,7 @@
 import React from "react"
 import Axios from "axios"
 
+
 // this is the class component that will set the state of the User component  
 export default class NewUserForm extends React.Component {
     state = {
@@ -9,32 +10,33 @@ export default class NewUserForm extends React.Component {
             email: ""
         }
     }
+    
+    redirectHome = () => {
+        Axios.get("/api/user/") //get prefix
+            .then(res => {
+                this.setState({ users: res.data })
+            })// //create promise
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
     handleInput = (event) => {
         let newUser = { ...this.state.newUser };
         newUser[event.target.name] = event.target.value;
-        this.setState({newUser})
+        this.setState({ newUser })
     }
-    
 
     handleSubmit = (event) => {
         event.preventDefault();
         // calls post req to pass state of newUser
-        // this.addNewUser(this.state.newUser)
-
         // path, data that's being posted
         Axios.post("/api/user/", this.state.newUser)
-        .then(() => {
-            console.log("posted")
-        })
-        this.setState({ ...this.state.newUser.userName: "", ...this.state.newUser.email: "" })
+            .then(() => {
+                this.redirectHome()
+                console.log("posted")
+            })
     }
-
-    // addNewUser = () => {
-    //     Axios.post("/api/user/")
-    //     .then(() => {
-    //     })
-    // }
 
     render = () => (
         <form onSubmit={this.handleSubmit}>

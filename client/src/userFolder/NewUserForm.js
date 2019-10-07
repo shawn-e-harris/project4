@@ -1,22 +1,26 @@
 import React from "react"
 import Axios from "axios"
 
-
 // this is the class component that will set the state of the User component  
-export default class NewUserForm extends React.Component {
-    state = {
-        newUser: {
-            userName: "",
-            email: "",
-            redirectHome: false 
-        }
+const initialState = {
+    newUser: {
+        userName: "",
+        email: "",
+        picture: ""
     }
+}
+export default class NewUserForm extends React.Component {
+    state = {...initialState}
 
     handleInput = (event) => {
         let newUser = { ...this.state.newUser };
         newUser[event.target.name] = event.target.value;
         this.setState({ newUser })
-        this.setState({ redirectHome: true })
+        // this.setState({ newUser: "" })
+    }
+
+    clearForm = () => {
+        this.setState({...initialState})
     }
 
     handleSubmit = (event) => {
@@ -28,14 +32,16 @@ export default class NewUserForm extends React.Component {
             // props allows call from server
             this.props.getUsersFromServer()
         })
-        // this.state.redirectHome ?  Axios.get("/api/user/") : null
-
+        .then(() => {
+            this.clearForm()
+        })
     }
 
     render = () => (
         <form onSubmit={this.handleSubmit}>
             <input type="text" name="userName" value={this.state.newUser.userName} onChange={this.handleInput} placeholder="User Name" />
             <input type="email" name="email" value={this.state.newUser.email} onChange={this.handleInput} placeholder="Email" />
+            <input type="text" name="picture" value={this.state.newUser.picture} onChange={this.handleInput} placeholder="Picture" />
             <input type="submit" value="New User" />
         </form>
     )

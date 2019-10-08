@@ -27,7 +27,7 @@ export default class NewBucketListItemForm extends React.Component {
         event.preventDefault();
         // calls post req to pass state of newBucketListItem
         // path, data that's being posted
-        Axios.post("/api/user//bucketlistitem/", this.state.newBucketListItem)
+        Axios.post(`/api/user/${this.props.match.params.id}/bucketlistitem/`, this.state.newBucketListItem)
             .then(() => {
                 // props allows call from server
                 this.props.getBucketListItemsFromServer()

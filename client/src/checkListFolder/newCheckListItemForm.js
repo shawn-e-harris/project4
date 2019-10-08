@@ -27,7 +27,7 @@ export default class NewCheckListItemForm extends React.Component {
         event.preventDefault();
         // calls post req to pass state of newCheckListItem
         // path, data that's being posted
-        Axios.post(`/api/user/${this.props.match.params.id}/bucketlistitem/`, this.state.newCheckListItem)
+        Axios.post(`/api/user/${this.props.match.params.id}/bucketlistitem/${this.props.match.params.id}/checklistitem`, this.state.newCheckListItem)
             .then(() => {
                 // props allows call from server
                 this.props.getCheckListItemsFromServer()

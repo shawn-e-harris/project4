@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 // import CheckListItemFunctions from "./checkListFolder/CheckListItemFunctions"
 import UserApp from "./userFolder/UserApp"
 import BucketListItemApp from "./bucketListFolder/BucketListApp"
+import getSingleUser from './userFolder/getSingleUser';
 
 export default class App extends React.Component {
   render() {
@@ -16,8 +17,9 @@ export default class App extends React.Component {
             <Link to ="/user/" >  Users  </Link> 
             <Link to ="/bucketlistitem/" >  Bucket List Items  </Link> 
           <Switch>
-          <Route exact path="/user" component={UserApp} />
+          <Route exact path="/user/" component={UserApp} />
           <Route exact path="/bucketlistitem" component={BucketListItemApp} />
+          <Route path="/user/:id" component={getSingleUser} />
           </Switch>
         </Router>
 

@@ -1,71 +1,7 @@
 import React from "react"
+import Axios from "axios"
 import NewUserForm from "./NewUserForm"
-import Axios from 'axios'
-import {Link} from "react-router-dom"
-import { userList, users, getUsersFromServer } from "../importsFolder/functions"
-
-// changed to add checkListItemNumber to match state in the App Component
-// const testUsers =
-// {
-//     1:
-//     {
-//         id: 1,
-//         checkListItemName: "Shawn",
-//         email: "Shawn@SoftwareEngineer.com",
-//         bucketListItem: [
-//             {
-//                 id: 1, bucketListItemName: "test checkListItem", status: "False", checkListItem: [
-//                     { id: 1, checkListItemName: "test checkListItem", status: "True" },
-//                     { id: 2, checkListItemName: "test 2nd checkListItem", status: "True" },
-//                     { id: 3, checkListItemName: "test 2nd checkListItem", status: "True" }
-//                 ]
-//             },
-//             {
-//                 id: 2, bucketListItemName: "test 2nd bucketListItem", status: "True", checkListItem: [
-//                     { id: 1, checkListItemName: "test checkListItem", status: "True" },
-//                     { id: 2, checkListItemName: "test 2nd checkListItem", status: "True" },
-//                     { id: 3, checkListItemName: "test 2nd checkListItem", status: "True" }
-//                 ]
-//             },
-//             {
-//                 id: 3, bucketListItemName: "test 3rd bucketListItem", status: "False", checkListItem: [
-//                     { id: 1, checkListItemName: "test checkListItem", status: "True" },
-//                     { id: 2, checkListItemName: "test 2nd checkListItem", status: "True" },
-//                     { id: 3, checkListItemName: "test 2nd checkListItem", status: "True" }
-//                 ]
-//             }
-//         ]
-//     },
-//     7:
-//     {
-//         id: 7,
-//         checkListItemName: "Asha",
-//         email: "Asha@UXDesigner.com",
-//         bucketListItem: [
-//             {
-//                 id: 1, bucketListItemName: "test checkListItem", status: "False", checkListItem: [
-//                     { id: 1, checkListItemName: "test checkListItem", status: "True" },
-//                     { id: 2, checkListItemName: "test 2nd checkListItem", status: "True" },
-//                     { id: 3, checkListItemName: "test 2nd checkListItem", status: "True" }
-//                 ]
-//             },
-//             {
-//                 id: 2, bucketListItemName: "test 2nd bucketListItem", status: "True", checkListItem: [
-//                     { id: 1, checkListItemName: "test checkListItem", status: "True" },
-//                     { id: 2, checkListItemName: "test 2nd checkListItem", status: "True" },
-//                     { id: 3, checkListItemName: "test 2nd checkListItem", status: "True" }
-//                 ]
-//             },
-//             {
-//                 id: 3, bucketListItemName: "test 3rd bucketListItem", status: "False", checkListItem: [
-//                     { id: 1, checkListItemName: "test checkListItem", status: "True" },
-//                     { id: 2, checkListItemName: "test 2nd checkListItem", status: "True" },
-//                     { id: 3, checkListItemName: "test 2nd checkListItem", status: "True" }
-//                 ]
-//             }
-//         ]
-//     }
-// }
+import { userList } from "../importsFolder/functions"
 
 export default class UserApp extends React.Component {
 
@@ -122,7 +58,6 @@ export default class UserApp extends React.Component {
         <div className='container'>
             <aside className='sidebar'>
                 <NewUserForm
-                    // addNewUser={this.addNewUser}
                     getUsersFromServer={this.getUsersFromServer}
                 />
             </aside>

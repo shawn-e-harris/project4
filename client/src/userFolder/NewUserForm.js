@@ -1,6 +1,5 @@
 import React from "react"
 import Axios from "axios"
-import {  users } from "../importsFolder/functions"
 
 // this is the class component that will set the state of the User component  
 const initialState = {

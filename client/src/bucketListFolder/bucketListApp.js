@@ -1,6 +1,7 @@
 import React from "react"
+import Axios from "axios"
 import NewBucketListItemForm from "./NewBucketListItemForm"
-import { bucketListItemList, bucketListItems, getBucketListItemsFromServer } from "../importsFolder/functions"
+import { bucketListItemList } from "../importsFolder/functions"
 
 export default class BucketListItemApp extends React.Component {
 
@@ -10,22 +11,18 @@ export default class BucketListItemApp extends React.Component {
     }
 
     // functon knows about state b/c it lives here
-    // getBucketListItemsFromServer = () => {
-    //     Axios.get("/api/bucketlistitem/") //get prefix
-    //         .then(res => {
-    //             this.setState({ bucketListItems: res.data })
-    //         })// //create promise
-    //         .catch(error => {
-    //             console.log(error)
-    //         })
-    // }
+    getBucketListItemsFromServer = () => {
+        Axios.get("/api/bucketlistitem/") //get prefix
+            .then(res => {
+                this.setState({ bucketListItems: res.data })
+            })// //create promise
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
     componentDidMount = () => {
-        // this.getBucketListItemsFromServer()
-        getBucketListItemsFromServer()
-            .then(() => {
-                this.setState({ bucketListItems })
-            })
+        this.getBucketListItemsFromServer()
     }
 
     getCurrentBucketListItem = () =>
@@ -46,8 +43,7 @@ export default class BucketListItemApp extends React.Component {
         <div className='container'>
             <aside className='sidebar'>
                 <NewBucketListItemForm
-                    addNewBucketListItem={this.addNewBucketListItem}
-                    getBucketListItemsFromServer={getBucketListItemsFromServer}
+                    getBucketListItemsFromServer={this.getBucketListItemsFromServer}
                 />
             </aside>
             <article className='mainContent'>

@@ -8,22 +8,7 @@ export default class UserApp extends React.Component {
     state = {
         currentUser: 1,
         users: []
-        // id: 1,
-        // email: "",
-        // picture: "",
-        // bucketListItem: [
-        //     {
-        //         id: 1, bucketListItemName: "", 
-        //         status: "", 
-        //         checkListItem: [
-        //             { id: 1, 
-                        // checkListItemName: "", 
-                        // status: "" }
-        //         ]
-        //     }
-        // ]
-
-    }
+        }
 
     // functon knows about state b/c it lives here
     getUsersFromServer = () => {

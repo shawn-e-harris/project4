@@ -1,12 +1,10 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-// import UserFunctions from "./userFolder/UserFunctions"
-// import BucketListItemFunctions from "./bucketListFolder/BucketListItemFunctions"
-// import CheckListItemFunctions from "./checkListFolder/CheckListItemFunctions"
 import UserApp from "./userFolder/UserApp"
 import BucketListItemApp from "./bucketListFolder/BucketListApp"
 import getSingleUser from './userFolder/getSingleUser';
+import getSingleBucketListItem from './bucketListFolder/getSingleBucketListItem';
 
 export default class App extends React.Component {
   render() {
@@ -20,13 +18,9 @@ export default class App extends React.Component {
           <Route exact path="/user/" component={UserApp} />
           <Route exact path="/bucketlistitem" component={BucketListItemApp} />
           <Route path="/user/:id" component={getSingleUser} />
+          <Route path="/user/:id/bucketlistitem/:id" component={getSingleBucketListItem} />
           </Switch>
         </Router>
-
-        
-        {/* <UserFunctions/> */}
-        {/* <BucketListItemFunctions/>
-        <CheckListItemFunctions/> */}
       </div>
     )
   }

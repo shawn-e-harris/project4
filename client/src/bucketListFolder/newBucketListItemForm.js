@@ -4,7 +4,9 @@ import Axios from "axios"
 // this is the class component that will set the state of the BucketListItem component  
 const initialState = {
     newBucketListItem: {
-        bucketListItemName: "",
+        bucketListName: "",
+        status: false,
+        user: 1,
     }
 }
 export default class NewBucketListItemForm extends React.Component {
@@ -36,7 +38,7 @@ export default class NewBucketListItemForm extends React.Component {
 
     render = () => (
         <form onSubmit={this.handleSubmit}>
-            <input type="text" name="bucketListItemName" value={this.state.newBucketListItem.bucketListItemName} onChange={this.handleInput} placeholder="BucketListItem Name" />
+            <input type="text" name="bucketListName" value={this.state.newBucketListItem.bucketListName} onChange={this.handleInput} placeholder="BucketListItem Name" />
             {/* <input type="email" name="email" value={this.state.email} onChange={this.handleInput} placeholder="Email" /> */}
             <input type="submit" value="New BucketListItem" />
         </form>

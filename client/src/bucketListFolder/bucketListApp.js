@@ -48,7 +48,7 @@ export default class BucketListItemApp extends React.Component {
             <aside className='sidebar'>
                 <NewBucketListItemForm
                     addNewBucketListItem={this.addNewBucketListItem}
-                    getBucketListItemsFromServer={this.getBucketListItemsFromServer}
+                    getBucketListItemsFromServer={getBucketListItemsFromServer}
                 />
             </aside>
             <article className='mainContent'>

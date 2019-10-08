@@ -27,7 +27,7 @@ export default class NewBucketListItemForm extends React.Component {
         event.preventDefault();
         // calls post req to pass state of newBucketListItem
         // path, data that's being posted
-        Axios.post("/api/bucketlistitem/", this.state.newBucketListItem)
+        Axios.post("/api/user//bucketlistitem/", this.state.newBucketListItem)
             .then(() => {
                 // props allows call from server
                 this.props.getBucketListItemsFromServer()
@@ -40,7 +40,6 @@ export default class NewBucketListItemForm extends React.Component {
     render = () => (
         <form onSubmit={this.handleSubmit}>
             <input type="text" name="bucketListName" value={this.state.newBucketListItem.bucketListName} onChange={this.handleInput} placeholder="Bucket List Item Name" />
-            {/* <input type="email" name="email" value={this.state.email} onChange={this.handleInput} placeholder="Email" /> */}
             <input type="submit" value="New Bucket List Item" />
         </form>
     )

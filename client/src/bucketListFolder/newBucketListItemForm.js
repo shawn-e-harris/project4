@@ -6,7 +6,8 @@ const initialState = {
     newBucketListItem: {
         bucketListName: "",
         status: false,
-        user: 1,
+        userId: 1
+        // userId: this.props.match.params.id,
     }
 }
 export default class NewBucketListItemForm extends React.Component {

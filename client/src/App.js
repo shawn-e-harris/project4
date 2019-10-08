@@ -12,12 +12,12 @@ export default class App extends React.Component {
     return (
       <div>
         <Router>
-            <Link to ="/api/">  Home  </Link> 
-            <Link to ="/api/user/" >  Users  </Link> 
-            <Link to ="/api/bucketlistitem/" >  Bucket List Items  </Link> 
+            <Link to ="/">  Home  </Link> 
+            <Link to ="/user/" >  Users  </Link> 
+            <Link to ="/bucketlistitem/" >  Bucket List Items  </Link> 
           <Switch>
-          <Route exact path="/api/user" component={UserApp} />
-          <Route exact path="/api/bucketlistitem" component={BucketListItemApp} />
+          <Route exact path="/user" component={UserApp} />
+          <Route exact path="/bucketlistitem" component={BucketListItemApp} />
           </Switch>
         </Router>
 

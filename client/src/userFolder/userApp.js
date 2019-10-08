@@ -1,5 +1,7 @@
 import React from "react"
 import NewUserForm from "./NewUserForm"
+import Axios from 'axios'
+import {Link} from "react-router-dom"
 import { userList, users, getUsersFromServer } from "../importsFolder/functions"
 
 // changed to add checkListItemNumber to match state in the App Component
@@ -70,39 +72,36 @@ export default class UserApp extends React.Component {
     state = {
         currentUser: 1,
         users: []
-            // id: 1,
-            // email: "",
-            // picture: "",
-            // bucketListItem: [
-            //     {
-            //         id: 1, bucketListItemName: "", status: "", checkListItem: [
-            //             { id: 1, checkListItemName: "", status: "" }
-            //         ]
-            //     }
-            // ]
-        
+        // id: 1,
+        // email: "",
+        // picture: "",
+        // bucketListItem: [
+        //     {
+        //         id: 1, bucketListItemName: "", 
+        //         status: "", 
+        //         checkListItem: [
+        //             { id: 1, 
+                        // checkListItemName: "", 
+                        // status: "" }
+        //         ]
+        //     }
+        // ]
+
     }
 
     // functon knows about state b/c it lives here
-    // getUsersFromServer = () => {
-    //     Axios.get("/api/user/") //get prefix
-    //         .then(res => {
-    //             this.setState({ users: res.data })
-    //         })// //create promise
-    //         .catch(error => {
-    //             console.log(error)
-    //         })
-    // }
+    getUsersFromServer = () => {
+        Axios.get("/api/user/") //get prefix
+            .then(res => {
+                this.setState({ users: res.data })
+            })// //create promise
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
     componentDidMount = () => {
-        //this.getUsersFromServer()
-        getUsersFromServer()
-            .then(() => {
-                this.setState({ users })
-                // console.log(users[0])
-                // console.log(users[0].email)
-            })
-        //console.log(this.state.users)
+        this.getUsersFromServer()
     }
 
     getCurrentUser = () =>
@@ -123,8 +122,8 @@ export default class UserApp extends React.Component {
         <div className='container'>
             <aside className='sidebar'>
                 <NewUserForm
-                    addNewUser={this.addNewUser}
-                    getUsersFromServer={getUsersFromServer}
+                    // addNewUser={this.addNewUser}
+                    getUsersFromServer={this.getUsersFromServer}
                 />
             </aside>
             <article className='mainContent'>

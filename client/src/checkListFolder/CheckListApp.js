@@ -11,7 +11,7 @@ export default class CheckListItemApp extends React.Component {
 
     // functon knows about state b/c it lives here
     getCheckListItemsFromServer = () => {
-        Axios.get(`/api/user/${this.props.match.params.id}/bucketlistitem/${this.props.match.params.id}/checklistitem/`) //get prefix
+        Axios.get(`/api/user/${this.props.match.params.userId}/bucketlistitem/${this.props.match.params.bucketId}/checklistitem/`) //get prefix
             .then(res => {
                 this.setState({ checkListItems: res.data })
             })// //create promise

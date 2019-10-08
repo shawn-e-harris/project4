@@ -11,8 +11,15 @@ export default class BucketListItemApp extends React.Component {
     }
 
     // functon knows about state b/c it lives here
-    getBucketListItemsFromServer = () => {
-        Axios.get(`/api/user/${this.props.match.params.id}/bucketlistitem/`) //get prefix
+    getBucketListItemsFromServer = (bLIUser) => {
+
+    // let bLIUserId = userId
+
+    //     for (let i = 0; i < bLIUser.length; i++) {
+    //         if ()
+    //     }
+
+        Axios.get(`/api/user/${this.props.match.params.userId}/bucketlistitem/`) //get prefix
             .then(res => {
                 this.setState({ bucketListItems: res.data })
             })// //create promise

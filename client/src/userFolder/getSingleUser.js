@@ -7,8 +7,10 @@ export default class getSingleUser extends React.Component {
         user: {}
     }
 
+
+
     getSingleUser = () =>
-    Axios.get(`/api/user/${this.props.match.params.id}/`)
+    Axios.get(`/api/user/${this.props.match.params.userId}/`)
     .then(res => {
         this.setState({user: res.data})
     })
@@ -20,7 +22,7 @@ export default class getSingleUser extends React.Component {
     render() {
         return (
             <div>
-                <NewBucketListItemForm/>
+                <NewBucketListItemForm {...this.props}/>
                <p>{this.state.user.id} <br/>{this.state.user.userName} <br/> {this.state.user.email} <br/> {this.state.user.picture}</p> 
             </div>
         )

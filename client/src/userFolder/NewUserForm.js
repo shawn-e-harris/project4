@@ -10,31 +10,30 @@ const initialState = {
     }
 }
 export default class NewUserForm extends React.Component {
-    state = {...initialState}
+    state = { ...initialState }
 
     handleInput = (event) => {
         let newUser = { ...this.state.newUser };
         newUser[event.target.name] = event.target.value;
         this.setState({ newUser })
-        // this.setState({ newUser: "" })
     }
 
     clearForm = () => {
-        this.setState({...initialState})
+        this.setState({ ...initialState })
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        // calls post req to pass state of newUser
+        // calls post req to pass state of newBucketListItem
         // path, data that's being posted
         Axios.post("/api/user/", this.state.newUser)
-        .then(() => {
-            // props allows call from server
-            this.props.getUsersFromServer()
-        })
-        .then(() => {
-            this.clearForm()
-        })
+            .then(() => {
+                // props allows call from server
+                this.props.getUsersFromServer()
+            })
+            .then(() => {
+                this.clearForm()
+            })
     }
 
     render = () => (

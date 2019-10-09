@@ -1,6 +1,7 @@
 import React from 'react'
 import Axios from 'axios'
 import NewBucketListItemForm from "../bucketListFolder/NewBucketListItemForm"
+import BucketListItemApp from '../bucketListFolder/BucketListApp'
 
 export default class getSingleUser extends React.Component {
     state = {
@@ -24,6 +25,9 @@ export default class getSingleUser extends React.Component {
             <div>
                 <NewBucketListItemForm {...this.props}/>
                <p>{this.state.user.id} <br/>{this.state.user.userName} <br/> {this.state.user.email} <br/> {this.state.user.picture}</p> 
+                <BucketListItemApp 
+                    user = {this.state.user}
+                />
             </div>
         )
     }

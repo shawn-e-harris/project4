@@ -19,7 +19,7 @@ export default class BucketListItemApp extends React.Component {
     //         if ()
     //     }
 
-        Axios.get(`/api/user/${this.props.match.params.userId}/bucketlistitem/`) //get prefix
+        Axios.get(`/api/bucketlistitem/`) //get prefix
             .then(res => {
                 this.setState({ bucketListItems: res.data })
             })// //create promise

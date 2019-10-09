@@ -49,7 +49,7 @@ export default class UserApp extends React.Component {
             <article className='mainContent'>
                 <div>
                     <h1>Users</h1>
-                    {userList(this.getAllUsers(), this.state.currentUser, this.setCurrentUser)}
+                    {userList(this.getAllUsers())}
                 </div>
             </article>
         </div>

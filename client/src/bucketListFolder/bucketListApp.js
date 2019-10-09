@@ -55,14 +55,12 @@ export default class BucketListItemApp extends React.Component {
 
     getAllBucketListItems = () =>
         // eliminates need for {bucketListItemList(testBucketListItems)}
+        // changed state of specificBlist instead of bucketListItems
         Object.values(this.state.specificBList)
 
 
     render = () => (
         <div className='container'>
-                {/* <NewBucketListItemForm
-                    getBucketListItemsFromServer={this.getBucketListItemsFromServer}
-                /> */}
                     <h1>BucketListItems</h1>
                     {bucketListItemList(this.getAllBucketListItems())}
                     {/* <getSingleBucketListItem /> */}

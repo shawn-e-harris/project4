@@ -38,7 +38,7 @@ export default class getSingleUser extends React.Component {
                     userId={this.state.user.id}
                 />
                 <p>{this.state.user.id} <br />{this.state.user.userName} <br /> {this.state.user.email} <br /> {this.state.user.picture}</p>
-                <BucketListItemApp
+                <BucketListItemApp {...this.props}
                 />
             </div>
         )

@@ -6,9 +6,9 @@ const initialState = {
     newBucketListItem: {
         bucketListName: "",
         status: false,
-        userId: 1
+        userId: 2
         // userId: this.props.match.userId
-        // userId: this.props.match.params.id,
+        // userId: this.props.match.params.userId,
     }
 }
 export default class NewBucketListItemForm extends React.Component {
@@ -42,9 +42,15 @@ export default class NewBucketListItemForm extends React.Component {
         console.log("TEST ME MAAAANNN")
         console.log(this.props.match.params.userId)
     }
+
+    userIdInput = (event) => {
+        let userId = (this.props.match.params.userId)
+    }
+
     render = () => (
         <div>
             <form onSubmit={this.handleSubmit}>
+                <input type="hidden" name="userId" value={this.props.match.params.userId} onChange={this.handleInput}/>
                 <input type="text" name="bucketListName" value={this.state.newBucketListItem.bucketListName} onChange={this.handleInput} placeholder="Bucket List Item Name" />
                 <input type="submit" value="New Bucket List Item" />
                 

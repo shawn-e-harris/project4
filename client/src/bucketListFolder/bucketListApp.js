@@ -8,7 +8,9 @@ export default class BucketListItemApp extends React.Component {
 
     state = {
         currentBucketListItem: 1,
-        bucketListItems: []
+        bucketListItems: [],
+        allBucketListItems: [],
+        specificBList: []
     }
 
     // functon knows about state b/c it lives here
@@ -23,13 +25,37 @@ export default class BucketListItemApp extends React.Component {
             })
     }
 
+    getRelatedBucketListItems = () =>{
+        // create empty array for userBucketListItems
+        let userBucketListItems = []
+        // this.props.match.params.userId is string, need integer
+        const userId = parseInt(this.props.match.params.userId)
+
+        //get all bucket list items
+        Axios.get("/api/bucketlistitem/")
+        .then(res => {
+            this.setState({allBucketListItems: res.data})
+            console.log(this.state.allBucketListItems.length)
+            for(let i = 0; i < this.state.allBucketListItems.length;i++){
+
+                if(userId===this.state.allBucketListItems[i].userId){
+                    userBucketListItems.push(this.state.allBucketListItems[i])
+                    this.setState({specificBList: userBucketListItems})
+                }else{
+                    console.log("ITS NOT A MATCH")
+                }
+            }
+        })
+    }
+
     componentDidMount = () => {
         this.getBucketListItemsFromServer()
+        this.getRelatedBucketListItems()
     }
 
     getAllBucketListItems = () =>
         // eliminates need for {bucketListItemList(testBucketListItems)}
-        Object.values(this.state.bucketListItems)
+        Object.values(this.state.specificBList)
 
 
     render = () => (

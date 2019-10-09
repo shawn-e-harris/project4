@@ -7,6 +7,7 @@ const initialState = {
         bucketListName: "",
         status: false,
         userId: 1
+        // userId: this.props.match.userId
         // userId: this.props.match.params.id,
     }
 }
@@ -27,10 +28,11 @@ export default class NewBucketListItemForm extends React.Component {
         event.preventDefault();
         // calls post req to pass state of newBucketListItem
         // path, data that's being posted
+        // Axios.post(`/api/user/${this.props.match.params.userId}/bucketlistitem/`, this.state.newBucketListItem)
         Axios.post(`/api/bucketlistitem/`, this.state.newBucketListItem)
             .then(() => {
                 // props allows call from server
-                this.props.getBucketListItemsFromServer()
+                // this.props.getBucketListItemsFromServer()
             })
             .then(() => {
                 this.clearForm()

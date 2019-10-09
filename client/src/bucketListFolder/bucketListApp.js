@@ -2,6 +2,7 @@ import React from "react"
 import Axios from "axios"
 import NewBucketListItemForm from "./NewBucketListItemForm"
 import { bucketListItemList } from "../importsFolder/functions"
+// import getSingleBucketListItem from "./getSingleBucketListItem"
 
 export default class BucketListItemApp extends React.Component {
 
@@ -11,18 +12,12 @@ export default class BucketListItemApp extends React.Component {
     }
 
     // functon knows about state b/c it lives here
-    getBucketListItemsFromServer = (bLIUser) => {
-
-    // let bLIUserId = userId
-
-    //     for (let i = 0; i < bLIUser.length; i++) {
-    //         if ()
-    //     }
+    getBucketListItemsFromServer = () => {
 
         Axios.get(`/api/bucketlistitem/`) //get prefix
             .then(res => {
                 this.setState({ bucketListItems: res.data })
-            })// //create promise
+            })//create promise
             .catch(error => {
                 console.log(error)
             })
@@ -32,33 +27,19 @@ export default class BucketListItemApp extends React.Component {
         this.getBucketListItemsFromServer()
     }
 
-    getCurrentBucketListItem = () =>
-        // instead of calling {bucketListItemIssueList(this.state.bucketListItem[this.state.currentBucketListItem]) this helps to reduce redundancy
-        this.state.bucketListItems[this.state.currentBucketListItem]
-
-
     getAllBucketListItems = () =>
         // eliminates need for {bucketListItemList(testBucketListItems)}
         Object.values(this.state.bucketListItems)
 
 
-    setCurrentBucketListItem = (currentBucketListItem) => {
-        this.setState({ currentBucketListItem })
-    }
-
     render = () => (
         <div className='container'>
-            <aside className='sidebar'>
-                <NewBucketListItemForm
+                {/* <NewBucketListItemForm
                     getBucketListItemsFromServer={this.getBucketListItemsFromServer}
-                />
-            </aside>
-            <article className='mainContent'>
-                <div>
+                /> */}
                     <h1>BucketListItems</h1>
-                    {bucketListItemList(this.getAllBucketListItems(), this.state.currentBucketListItem, this.setCurrentBucketListItem)}
-                </div>
-            </article>
+                    {bucketListItemList(this.getAllBucketListItems())}
+                    {/* <getSingleBucketListItem /> */}
         </div>
     )
 }

@@ -11,9 +11,8 @@ const userPreview = (user) => (
   </div>
 )
 
-const userList = (users, currentUserId, onChange) => (
-  // <select value ={currentUserId} onChange={(evnt)=> onChange(evnt.target.value)}>
-  <p value={currentUserId} onChange={(event) => onChange(event.target.value)}>
+const userList = (users) => (
+  <p>
     {users.map(userPreview)}
   </p>
 )
@@ -46,22 +45,11 @@ const checkListItemList = (checkListItems) => (
   </ul>
 )
 
-const objectFromListById = (users, bucketListItems) =>
-  //convert from an array of user objects to an
-  //object of user objects where the keys are user ids
-  users.reduce((obj, user) => {
-    //get all bucketListItems belonging to the user
-    user.bucketListItems = bucketListItems.filter(bucketListItem => bucketListItem.user === user.id);
-    obj[user.id] = user;
-    return obj;
-  }, {})
-
 export {
   bucketListItemList,
   bucketListItemPreview,
   checkListItemList,
   checkListItemPreview,
-  objectFromListById,
   userList,
   userPreview,
   users,

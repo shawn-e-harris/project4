@@ -8,7 +8,7 @@ export default class UserApp extends React.Component {
     state = {
         currentUser: 1,
         users: []
-        }
+    }
 
     // functon knows about state b/c it lives here
     getUsersFromServer = () => {
@@ -25,33 +25,17 @@ export default class UserApp extends React.Component {
         this.getUsersFromServer()
     }
 
-    getCurrentUser = () =>
-        // instead of calling {userList(this.state.user[this.state.currentUser]) this helps to reduce redundancy
-        this.state.users[this.state.currentUser]
-
-
     getAllUsers = () =>
         // eliminates need for {userList(testUsers)}
         Object.values(this.state.users)
 
-
-    setCurrentUser = (currentUser) => {
-        this.setState({ currentUser })
-    }
-
     render = () => (
         <div className='container'>
-            <aside className='sidebar'>
-                <NewUserForm
-                    getUsersFromServer={this.getUsersFromServer}
-                />
-            </aside>
-            <article className='mainContent'>
-                <div>
-                    <h1>Users</h1>
-                    {userList(this.getAllUsers())}
-                </div>
-            </article>
+            <NewUserForm
+                getUsersFromServer={this.getUsersFromServer}
+            />
+            <h1>Users</h1>
+            {userList(this.getAllUsers())}
         </div>
     )
 }

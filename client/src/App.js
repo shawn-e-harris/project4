@@ -17,12 +17,13 @@ export default class App extends React.Component {
           <Switch>
           <Route exact path="/user/" component={UserApp} />
           <Route exact path="/bucketlistitem/" component={BucketListItemApp} />
-          {/* <Route exact path="/user/:userId/bucketlistitem" component={BucketListItemApp} /> */}
+          <Route exact path="/user/:userId/bucketlistitem" component={BucketListItemApp} />
           <Route exact path="/user/:userId" component={getSingleUser} />
-          {/* <Route path="/user/:userId/bucketlistitem/:bucketId" component={getSingleBucketListItem} /> */}
+          <Route exact path="/user/:userId/bucketlistitem/:bucketId" component={getSingleBucketListItem} />
           </Switch>
         </Router>
       </div>
     )
+
   }
 }

@@ -1,6 +1,6 @@
 import React from "react"
 import Axios from "axios"
-import NewBucketListItemForm from "./NewBucketListItemForm"
+// import NewBucketListItemForm from "./NewBucketListItemForm"
 import { bucketListItemList } from "../importsFolder/functions"
 // import getSingleBucketListItem from "./getSingleBucketListItem"
 
@@ -13,19 +13,7 @@ export default class BucketListItemApp extends React.Component {
         specificBList: []
     }
 
-    // functon knows about state b/c it lives here
-    getBucketListItemsFromServer = () => {
-
-        Axios.get(`/api/bucketlistitem/`) //get prefix
-            .then(res => {
-                this.setState({ bucketListItems: res.data })
-            })//create promise
-            .catch(error => {
-                console.log(error)
-            })
-    }
-
-    getRelatedBucketListItems = () =>{
+    getRelatedBucketListItems = () => {
         // create empty array for userBucketListItems
         let userBucketListItems = []
         // this.props.match.params.userId is string, need integer
@@ -33,23 +21,23 @@ export default class BucketListItemApp extends React.Component {
 
         //get all bucket list items
         Axios.get("/api/bucketlistitem/")
-        .then(res => {
-            this.setState({allBucketListItems: res.data})
-            console.log(this.state.allBucketListItems.length)
-            for(let i = 0; i < this.state.allBucketListItems.length;i++){
+            .then(res => {
+                this.setState({ allBucketListItems: res.data })
+                console.log(this.state.allBucketListItems.length)
+                for (let i = 0; i < this.state.allBucketListItems.length; i++) {
 
-                if(userId===this.state.allBucketListItems[i].userId){
-                    userBucketListItems.push(this.state.allBucketListItems[i])
-                    this.setState({specificBList: userBucketListItems})
-                }else{
-                    console.log("ITS NOT A MATCH")
+                    if (userId === this.state.allBucketListItems[i].userId) {
+                        userBucketListItems.push(this.state.allBucketListItems[i])
+                        this.setState({ specificBList: userBucketListItems })
+                    } else {
+                        console.log("ITS NOT A MATCH")
+                    }
                 }
-            }
-        })
+            })
     }
 
     componentDidMount = () => {
-        this.getBucketListItemsFromServer()
+        // this.getBucketListItemsFromServer()
         this.getRelatedBucketListItems()
     }
 
@@ -61,9 +49,8 @@ export default class BucketListItemApp extends React.Component {
 
     render = () => (
         <div className='container'>
-                    <h1>BucketListItems</h1>
-                    {bucketListItemList(this.getAllBucketListItems())}
-                    {/* <getSingleBucketListItem /> */}
+            <h1>BucketListItems</h1>
+            {bucketListItemList(this.getAllBucketListItems())}
         </div>
     )
 }

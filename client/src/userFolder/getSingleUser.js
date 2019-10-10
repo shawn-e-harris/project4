@@ -8,17 +8,17 @@ export default class getSingleUser extends React.Component {
         user: {}
     }
 
-    // getBucketListItemsFromServer = () => {
+    // functon knows about state b/c it lives here
+    getBucketListItemsFromServer = () => {
 
-    //     Axios.get(`/api/bucketlistitem/`) //get prefix
-    //         .then(res => {
-    //             console.log("refresh")
-    //             this.setState({ bucketListItems: res.data })
-    //         })//create promise
-    //         .catch(error => {
-    //             console.log(error)
-    //         })
-    // }
+        Axios.get(`/api/bucketlistitem/`) //get prefix
+            .then(res => {
+                this.setState({ bucketListItems: res.data })
+            })//create promise
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
     getSingleUser = () =>
         Axios.get(`/api/user/${this.props.match.params.userId}/`)
@@ -27,16 +27,18 @@ export default class getSingleUser extends React.Component {
             })
 
     componentDidMount() {
-        this.getSingleUser();
+        this.getSingleUser()
+        .then(() => {
+            this.getBucketListItemsFromServer()
+        })
     }
 
     render() {
         return (
             <div>
                 <NewBucketListItemForm {...this.props}
-                    getBucketListItemsFromServer={this.getBucketListItemsFromServer}
                     userId={this.state.user.id}
-                />
+                    />
                 <p>{this.state.user.id} <br />{this.state.user.userName} <br /> {this.state.user.email} <br /> {this.state.user.picture}</p>
                 <BucketListItemApp {...this.props}
                 />

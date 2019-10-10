@@ -24,14 +24,14 @@ export default class BucketListItemApp extends React.Component {
         Axios.get("/api/bucketlistitem/")
             .then(res => {
                 this.setState({ allBucketListItems: res.data })
-                console.log(this.state.allBucketListItems.length)
+                // console.log(this.state.allBucketListItems.length)
                 for (let i = 0; i < this.state.allBucketListItems.length; i++) {
 
                     if (userId === this.state.allBucketListItems[i].userId) {
                         userBucketListItems.push(this.state.allBucketListItems[i])
                         this.setState({ specificBList: userBucketListItems })
-                    } else {
-                        console.log("ITS NOT A MATCH")
+                    // } else {
+                    //     // console.log("ITS NOT A MATCH")
                     }
                 }
             })

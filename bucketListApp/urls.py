@@ -8,7 +8,7 @@ router = routers.DefaultRouter()
 # trailing slashes are not necessary in django unless it's being called via AJAX
 router.register('user', views.UserViewSet)
 router.register('bucketlistitem', views.BucketListItemViewSet)
-router.register('checklistitem', views.BucketListItemViewSet)
+router.register('checklistitem', views.CheckListItemViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

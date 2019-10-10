@@ -28,7 +28,7 @@ export default class NewBucketListItemForm extends React.Component {
 
     findTheUser = () => {
         let userId = this.props.match.params.userId
-        console.log("The user id is " + userId)
+        // console.log("The user id is " + userId)
         // this.setState({newBucketListItem.userId:})
     }
 
@@ -55,7 +55,7 @@ export default class NewBucketListItemForm extends React.Component {
         <div>
             <form onSubmit={this.handleSubmit}>
 
-                <input type="hidden" name="userId" value={this.props.match.params.userId} onChange={this.handleInput} />
+                {/* <input type="hidden" name="userId" value={this.props.match.params.userId} onChange={this.handleInput} /> */}
                 <input type="text" name="bucketListName" value={this.state.newBucketListItem.bucketListName} onChange={this.handleInput} placeholder="Bucket List Item Name" />
                 <input type="submit" value="New Bucket List Item" />
 

@@ -15,7 +15,7 @@ export default class CheckListItemApp extends React.Component {
 
     getRelatedCheckListItems = () => {
         // create empty array for userBucketListItems
-        let userCheckListItems = []
+        let bucketListCheckListItems = []
         // this.props.match.params.bucketId is string, need integer
         const bucketId = parseInt(this.props.match.params.bucketId)
 
@@ -23,14 +23,14 @@ export default class CheckListItemApp extends React.Component {
         Axios.get("/api/checklistitem/")
             .then(res => {
                 this.setState({ allCheckListItems: res.data })
-                console.log(this.state.allCheckListItems.length)
+                // console.log(this.state.allCheckListItems.length)
                 for (let i = 0; i < this.state.allCheckListItems.length; i++) {
 
                     if (bucketId === this.state.allCheckListItems[i].bucketId) {
-                        userCheckListItems.push(this.state.allCheckListItems[i])
-                        this.setState({ specificCList: userCheckListItems })
+                        bucketListCheckListItems.push(this.state.allCheckListItems[i])
+                        this.setState({ specificCList: bucketListCheckListItems })
                     } else {
-                        console.log("ITS NOT A MATCH")
+                        // console.log("ITS NOT A MATCH")
                     }
                 }
             })

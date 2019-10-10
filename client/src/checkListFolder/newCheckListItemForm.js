@@ -6,10 +6,9 @@ const initialState = {
     newCheckListItem: {
         checkListName: "",
         status: false,
-        // bucketListItemId: 1,
-        // bucketListItemId: this.props.match.params.id,
     }
 }
+
 export default class NewCheckListItemForm extends React.Component {
     state = { ...initialState }
 
@@ -29,7 +28,9 @@ export default class NewCheckListItemForm extends React.Component {
 
     findTheBucketListItem = () => {
         let bucketId = this.props.match.params.bucketId
-        console.log("The user id is " + bucketId)
+        let bucketListName = this.props.match.params.bucketListName
+        let userId = this.props.match.params.userId
+        // console.log("The user id is " + bucketId)
         // this.setState({newBucketListItem.bucketId:})
     }
 
@@ -54,7 +55,6 @@ export default class NewCheckListItemForm extends React.Component {
 
     render = () => (
         <form onSubmit={this.handleSubmit}>
-            {/* <input type="hidden" name="bucketId" value={this.props.match.params.bucketId} onChange={this.handleInput} /> */}
             <input type="text" name="checkListName" value={this.state.newCheckListItem.checkListName} onChange={this.handleInput} placeholder="Check List Item Name" />
             <input type="submit" value="New Check List Item" />
         </form>

@@ -28,8 +28,6 @@ export default class NewCheckListItemForm extends React.Component {
 
     findTheBucketListItem = () => {
         let bucketId = this.props.match.params.bucketId
-        let bucketListName = this.props.match.params.bucketListName
-        let userId = this.props.match.params.userId
         // console.log("The user id is " + bucketId)
         // this.setState({newBucketListItem.bucketId:})
     }

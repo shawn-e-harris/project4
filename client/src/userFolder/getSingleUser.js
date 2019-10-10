@@ -3,7 +3,7 @@ import Axios from 'axios'
 import NewBucketListItemForm from "../bucketListFolder/NewBucketListItemForm"
 import BucketListItemApp from '../bucketListFolder/BucketListApp'
 
-export default class getSingleUser extends React.Component {
+export default class GetSingleUser extends React.Component {
     state = {
         user: {}
     }

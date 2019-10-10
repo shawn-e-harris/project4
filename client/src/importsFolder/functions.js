@@ -35,7 +35,7 @@ const bucketListItemList = (bucketListItems) => (
 
 // displays bucketListItem id, and status
 const checkListItemPreview = (checkListItem) => (
-  <li>{checkListItem.id} - {checkListItem.checkListItemName} - {checkListItem.status}</li>
+  <li>{checkListItem.id} - {checkListItem.checkListName} - {checkListItem.status}</li>
 )
 
 // displays array of checkListItems

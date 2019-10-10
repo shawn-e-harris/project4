@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.5.0",
+    "@material-ui/icons": "^4.4.3",
     "find-package-json": "^1.2.0"
   }
 }

@@ -78,12 +78,16 @@ WSGI_APPLICATION = 'bucketList.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+# CHANGE DATABASES
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 
 # Password validation
@@ -131,6 +135,9 @@ REST_FRAMEWORK = {
     ]    
 }
 
+# ADD WHITENOISE TO STATIC-URL STORAGE
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # THIS MUST BE ADDED TO AFTER CREATE REACT APP IS INSTALLED FOR CLIENT 
 REACT_APP_DIR = "client"
 
@@ -140,3 +147,6 @@ STATICFILES_DIRS = [
 
 #PYTHON PACKAGE NEEDED TO DEPLOY TO HEROKU
 django_heroku.settings(locals())
+
+# SSLMODE ISSUE WORKAROUND
+del DATABASES['default']['OPTIONS']['sslmode']

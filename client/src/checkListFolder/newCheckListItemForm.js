@@ -6,7 +6,7 @@ const initialState = {
     newCheckListItem: {
         checkListName: "",
         status: false,
-        bucketListItemId: 1,
+        // bucketListItemId: 1,
         // bucketListItemId: this.props.match.params.id,
     }
 }
@@ -23,14 +23,29 @@ export default class NewCheckListItemForm extends React.Component {
         this.setState({ ...initialState })
     }
 
+    componentDidMount = () => {
+        this.findTheBucketListItem()
+    }
+
+    findTheBucketListItem = () => {
+        let userId = this.props.match.params.bucketId
+        console.log("The user id is " + bucketId)
+        // this.setState({newBucketListItem.userId:})
+    }
+
     handleSubmit = (event) => {
         event.preventDefault();
+        // extraction from an object
+        const { bucketId } = this.props.match.params;
+        const { newCheckListItem } = this.state;
+        // merges objects right to left, (newCheckListItem goes into {bucketId:bucketId}).. and so on
+        const payload = Object.assign({}, { userId: userId }, newBucketListItem)
         // calls post req to pass state of newCheckListItem
         // path, data that's being posted
-        Axios.post(`/api/user/${this.props.match.params.userId}/bucketlistitem/${this.props.match.params.bucketId}/checklistitem`, this.state.newCheckListItem)
+        Axios.post(`/api/checklistitem/`, this.state.newCheckListItem)
             .then(() => {
                 // props allows call from server
-                this.props.getCheckListItemsFromServer()
+                // this.props.getCheckListItemsFromServer()
             })
             .then(() => {
                 this.clearForm()
@@ -39,6 +54,7 @@ export default class NewCheckListItemForm extends React.Component {
 
     render = () => (
         <form onSubmit={this.handleSubmit}>
+            <input type="hidden" name="bucketId" value={this.props.match.params.bucketId} onChange={this.handleInput} />
             <input type="text" name="checkListName" value={this.state.newCheckListItem.checkListName} onChange={this.handleInput} placeholder="Check List Item Name" />
             <input type="submit" value="New Check List Item" />
         </form>

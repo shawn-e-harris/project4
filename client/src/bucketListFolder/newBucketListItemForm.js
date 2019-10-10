@@ -20,21 +20,24 @@ export default class NewBucketListItemForm extends React.Component {
     clearForm = () => {
         this.setState({ ...initialState })
     }
+
     componentDidMount = () => {
-       this.findTheUser()
+        this.findTheUser()
     }
+
     findTheUser = () => {
         let userId = this.props.match.params.userId
         console.log("The user id is " + userId)
         // this.setState({newBucketListItem.userId:})
     }
+
     handleSubmit = (event) => {
         event.preventDefault();
         // extraction from an object
-        const {userId} = this.props.match.params;
-        const {newBucketListItem} = this.state;
+        const { userId } = this.props.match.params;
+        const { newBucketListItem } = this.state;
         // merges objects right to left, (newBucketListItem goes into {userId:userId}).. and so on
-        const payload = Object.assign({}, {userId:userId}, newBucketListItem)
+        const payload = Object.assign({}, { userId: userId }, newBucketListItem)
         // calls post req to pass state of newBucketListItem
         // path, data that's being posted
         Axios.post(`/api/bucketlistitem/`, payload)
@@ -50,11 +53,11 @@ export default class NewBucketListItemForm extends React.Component {
     render = () => (
         <div>
             <form onSubmit={this.handleSubmit}>
-               
-                <input type="hidden" name="userId" value={this.props.match.params.userId} onChange={this.handleInput}/>
+
+                <input type="hidden" name="userId" value={this.props.match.params.userId} onChange={this.handleInput} />
                 <input type="text" name="bucketListName" value={this.state.newBucketListItem.bucketListName} onChange={this.handleInput} placeholder="Bucket List Item Name" />
                 <input type="submit" value="New Bucket List Item" />
-                
+
             </form>
         </div>
     )

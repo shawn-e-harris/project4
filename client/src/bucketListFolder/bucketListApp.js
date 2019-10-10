@@ -2,6 +2,7 @@ import React from "react"
 import Axios from "axios"
 // import NewBucketListItemForm from "./NewBucketListItemForm"
 import { bucketListItemList } from "../importsFolder/functions"
+// import NewCheckListItemForm from "../checkListFolder/NewCheckListItemForm"
 // import getSingleBucketListItem from "./getSingleBucketListItem"
 
 export default class BucketListItemApp extends React.Component {
@@ -49,6 +50,9 @@ export default class BucketListItemApp extends React.Component {
 
     render = () => (
         <div className='container'>
+            {/* <NewCheckListItemForm
+            getRelatedBucketListItems={this.getRelatedBucketListItems}
+            /> */}
             <h1>BucketListItems</h1>
             {bucketListItemList(this.getAllBucketListItems())}
         </div>

@@ -20,7 +20,7 @@ const userList = (users) => (
 // displays bucketListItem id, and status
 const bucketListItemPreview = (bucketListItem) => (
   <div>
-  <Link to={`${bucketListItem.id}`}> {bucketListItem.bucketListName}</Link> 
+  <Link to={`/bucketlistitem/${bucketListItem.id}/`}> {bucketListItem.bucketListName}</Link> 
   <button>{bucketListItem.status ? "Close" : "Open"}
 </button> 
 </div>

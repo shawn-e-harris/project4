@@ -8,6 +8,7 @@ const initialState = {
         status: false,
     }
 }
+
 export default class NewBucketListItemForm extends React.Component {
     state = { ...initialState }
 

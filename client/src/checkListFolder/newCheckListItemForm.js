@@ -28,9 +28,9 @@ export default class NewCheckListItemForm extends React.Component {
     }
 
     findTheBucketListItem = () => {
-        let userId = this.props.match.params.bucketId
+        let bucketId = this.props.match.params.bucketId
         console.log("The user id is " + bucketId)
-        // this.setState({newBucketListItem.userId:})
+        // this.setState({newBucketListItem.bucketId:})
     }
 
     handleSubmit = (event) => {
@@ -39,10 +39,10 @@ export default class NewCheckListItemForm extends React.Component {
         const { bucketId } = this.props.match.params;
         const { newCheckListItem } = this.state;
         // merges objects right to left, (newCheckListItem goes into {bucketId:bucketId}).. and so on
-        const payload = Object.assign({}, { userId: userId }, newBucketListItem)
+        const payload = Object.assign({}, { bucketId: bucketId }, newCheckListItem)
         // calls post req to pass state of newCheckListItem
         // path, data that's being posted
-        Axios.post(`/api/checklistitem/`, this.state.newCheckListItem)
+        Axios.post(`/api/checklistitem/`, payload)
             .then(() => {
                 // props allows call from server
                 // this.props.getCheckListItemsFromServer()
@@ -54,7 +54,7 @@ export default class NewCheckListItemForm extends React.Component {
 
     render = () => (
         <form onSubmit={this.handleSubmit}>
-            <input type="hidden" name="bucketId" value={this.props.match.params.bucketId} onChange={this.handleInput} />
+            {/* <input type="hidden" name="bucketId" value={this.props.match.params.bucketId} onChange={this.handleInput} /> */}
             <input type="text" name="checkListName" value={this.state.newCheckListItem.checkListName} onChange={this.handleInput} placeholder="Check List Item Name" />
             <input type="submit" value="New Check List Item" />
         </form>

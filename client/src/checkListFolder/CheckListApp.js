@@ -16,7 +16,7 @@ export default class CheckListItemApp extends React.Component {
     getRelatedCheckListItems = () => {
         // create empty array for userBucketListItems
         let userCheckListItems = []
-        // this.props.match.params.userId is string, need integer
+        // this.props.match.params.bucketId is string, need integer
         const bucketId = parseInt(this.props.match.params.bucketId)
 
         //get all bucket list items
@@ -38,7 +38,7 @@ export default class CheckListItemApp extends React.Component {
 
     // // functon knows about state b/c it lives here
     // getCheckListItemsFromServer = () => {
-    //     Axios.get(`/api/user/${this.props.match.params.userId}/bucketlistitem/${this.props.match.params.bucketId}/checklistitem/`) //get prefix
+    //     Axios.get(`/api/user/${this.props.match.params.bucketId}/bucketlistitem/${this.props.match.params.bucketId}/checklistitem/`) //get prefix
     //         .then(res => {
     //             this.setState({ checkListItems: res.data })
     //         })// //create promise

@@ -43,6 +43,7 @@ export default class CLForm extends React.Component {
         Axios.post(`/api/checklistitem/`, payload)
             .then(() => {
                 this.clearForm()
+                window.location.reload();
             })
     }
 

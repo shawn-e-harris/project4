@@ -15,7 +15,7 @@ export default class App extends React.Component {
             <Link to ="/user/" >  Users  </Link> 
           <Switch>
           {/* <Route exact path="/user/" component={UApp} /> */}
-          <Route exact path="/user/" component={HomePage} />
+          <Route exact path="/user/" component={UApp} />
           <Route exact path="/user/:userId" component={SingleU} />
           <Route exact path="/bucketlistitem/:bucketId" component={SingleBL} />
           </Switch>

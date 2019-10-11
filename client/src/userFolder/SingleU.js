@@ -7,7 +7,7 @@ import {Redirect} from 'react-router-dom'
 export default class SingleU extends React.Component {
     state = {
         user: {},
-        redirectToHome: false
+        redirectToUser: false
     }
 
     getSingleUser = () =>
@@ -20,11 +20,11 @@ export default class SingleU extends React.Component {
         this.getSingleUser()
     }
 
-    handleDeleteShow = () => {
+    handleDeleteUser = () => {
         Axios.delete(`/api/user/${this.props.match.params.userId}/`)
         .then(() => {
             // this is the trigger to change setState for redirectToHome
-            this.setState({redirectToHome: true})
+            this.setState({redirectToUser: true})
         })
         .catch(err => {
             console.log(err);
@@ -33,7 +33,7 @@ export default class SingleU extends React.Component {
 
     render() {
         // conditional rendering for redirectToHome is truthy
-        if(this.state.redirectToHome) {
+        if(this.state.redirectToUser) {
             return(
                 <Redirect to="/user" />
             )
@@ -44,7 +44,7 @@ export default class SingleU extends React.Component {
                     userId={this.state.user.id}
                 />
                 <p>{this.state.user.id} <br />{this.state.user.userName} <br /> {this.state.user.email}</p> <img src={this.state.user.picture}/>
-                <button onClick={this.handleDeleteShow}>Delete</button>
+                <button onClick={this.handleDeleteUser}>Delete</button>
                 <BLApp {...this.props}
                 />
             </div>

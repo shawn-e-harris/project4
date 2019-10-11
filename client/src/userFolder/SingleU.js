@@ -2,6 +2,7 @@ import React from 'react'
 import Axios from 'axios'
 import BLForm from "../bucketListFolder/BLForm"
 import BLApp from '../bucketListFolder/BLApp'
+// import UDelete from '../userFolder/UDelete'
 
 export default class SingleU extends React.Component {
     state = {
@@ -27,6 +28,7 @@ export default class SingleU extends React.Component {
                 <p>{this.state.user.id} <br />{this.state.user.userName} <br /> {this.state.user.email}</p> <img src={this.state.user.picture}/>
                 <BLApp {...this.props}
                 />
+                {/* <UDelete/> */}
             </div>
         )
     }

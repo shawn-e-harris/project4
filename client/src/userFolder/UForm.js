@@ -1,5 +1,14 @@
 import React from "react"
 import Axios from "axios"
+import styled from "styled-components"
+
+const PageWrapper = styled.div`
+background-color: red;
+`
+
+
+
+
 
 // this is the class component that will set the state of the User component  
 const initialState = {
@@ -37,7 +46,11 @@ export default class UForm extends React.Component {
     }
 
     render = () => (
+
         <form onSubmit={this.handleSubmit}>
+            <PageWrapper>
+                Hello
+            </PageWrapper>
             <input type="text" name="userName" value={this.state.newUser.userName} onChange={this.handleInput} placeholder="User Name" />
             <input type="email" name="email" value={this.state.newUser.email} onChange={this.handleInput} placeholder="Email" />
             <input type="text" name="picture" value={this.state.newUser.picture} onChange={this.handleInput} placeholder="Picture" />

@@ -7,7 +7,7 @@ let user = {}
 // this shows 1 user as option for select tag 
 const userPreview = (user) => (
   <div>
-  <Link to={`${user.id}`}>{user.userName} - {user.email} - {user.picture}</Link>
+  <Link to={`${user.id}`}>{user.userName}</Link> - {user.email} - <img src={user.picture}/>
   </div>
 )
 

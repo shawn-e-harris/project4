@@ -5,7 +5,7 @@ class User(models.Model):
     # this is like schema in express IssueItemSchema = mongoose.Schema({description : String, done : Boolean})
     userName = models.CharField(max_length=10)
     email = models.EmailField(max_length=50)
-    picture = models.CharField(max_length=500)
+    picture = models.CharField(max_length=5000)
 
 class BucketListItem(models.Model):
     # this is like schema in express IssueItemSchema = mongoose.Schema({description : String, done : Boolean})

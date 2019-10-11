@@ -21,21 +21,17 @@ export default class BLApp extends React.Component {
         Axios.get("/api/bucketlistitem/")
             .then(res => {
                 this.setState({ allBucketListItems: res.data })
-                // console.log(this.state.allBucketListItems.length)
                 for (let i = 0; i < this.state.allBucketListItems.length; i++) {
 
                     if (userId === this.state.allBucketListItems[i].userId) {
                         userBucketListItems.push(this.state.allBucketListItems[i])
                         this.setState({ specificBList: userBucketListItems })
-                    // } else {
-                    //     // console.log("ITS NOT A MATCH")
                     }
                 }
             })
     }
 
     componentDidMount = () => {
-        // this.getBucketListItemsFromServer()
         this.getRelatedBucketListItems()
     }
 

@@ -28,7 +28,6 @@ export default class CLForm extends React.Component {
 
     findTheBucketListItem = () => {
         let bucketId = this.props.match.params.bucketId
-        // console.log("The user id is " + bucketId)
     }
 
     handleSubmit = (event) => {

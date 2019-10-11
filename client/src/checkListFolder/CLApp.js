@@ -22,21 +22,17 @@ export default class CLApp extends React.Component {
         Axios.get("/api/checklistitem/")
             .then(res => {
                 this.setState({ allCheckListItems: res.data })
-                // console.log(this.state.allCheckListItems.length)
                 for (let i = 0; i < this.state.allCheckListItems.length; i++) {
 
                     if (bucketId === this.state.allCheckListItems[i].bucketId) {
                         bucketListCheckListItems.push(this.state.allCheckListItems[i])
                         this.setState({ specificCList: bucketListCheckListItems })
-                    } else {
-                        // console.log("ITS NOT A MATCH")
                     }
                 }
             })
     }
 
     componentDidMount = () => {
-        // this.getCheckListItemsFromServer()
         this.getRelatedCheckListItems()
     }
 

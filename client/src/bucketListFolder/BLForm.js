@@ -28,7 +28,6 @@ export default class BLForm extends React.Component {
 
     findTheUser = () => {
         let userId = this.props.match.params.userId
-        // console.log("The user id is " + userId)
     }
 
     handleSubmit = (event) => {

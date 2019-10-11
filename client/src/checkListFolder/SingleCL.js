@@ -7,7 +7,6 @@ export default class SingleCL extends React.Component {
     }
 
     getSingleCheckListItem = () =>
-    // Axios.get(`/api/user/${this.props.match.params.id}/bucketlistitem/${this.props.match.params.id}`)
     Axios.get(`/api/checklistitem/${this.props.match.params.checkId}/`)
     .then(res => {
         this.setState({checkListItem: res.data})
@@ -19,7 +18,6 @@ export default class SingleCL extends React.Component {
         Axios.get("/api/checklistitem/")
         .then(res => {
             this.setState({allCheckListItems: res.data})
-            // console.log(this.state.allCheckListItems)
         })
         
     }

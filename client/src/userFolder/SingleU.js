@@ -24,7 +24,7 @@ export default class SingleU extends React.Component {
                 <BLForm {...this.props}
                     userId={this.state.user.id}
                 />
-                <p>{this.state.user.id} <br />{this.state.user.userName} <br /> {this.state.user.email} <br /> {this.state.user.picture}</p>
+                <p>{this.state.user.id} <br />{this.state.user.userName} <br /> {this.state.user.email}</p> <img src={this.state.user.picture}/>
                 <BLApp {...this.props}
                 />
             </div>

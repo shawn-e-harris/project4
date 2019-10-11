@@ -41,9 +41,11 @@ export default class BLForm extends React.Component {
         // calls post req to pass state of newBucketListItem
         // path, data that's being posted
         Axios.post(`/api/bucketlistitem/`, payload)
-            .then(() => {
-                this.clearForm()
+        .then(() => {
+            this.clearForm()
+            window.location.reload();
             })
+
     }
 
     render = () => (

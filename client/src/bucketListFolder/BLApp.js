@@ -44,7 +44,6 @@ export default class BLApp extends React.Component {
         // changed state of specificBlist instead of bucketListItems
         Object.values(this.state.specificBList)
 
-
     render = () => (
         <div className='container'>
             <h1>BucketListItems</h1>

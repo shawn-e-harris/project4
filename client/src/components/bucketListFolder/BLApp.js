@@ -42,8 +42,7 @@ export default class BLApp extends React.Component {
         Object.values(this.state.specificBList)
 
     render = () => (
-        <div className='container'>
-            {/* <h1>BucketListItems</h1> */}
+        <div >
             {bucketListItemList(this.getAllBucketListItems())}
         </div>
     )

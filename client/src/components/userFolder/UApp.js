@@ -43,10 +43,10 @@ export default class UApp extends React.Component {
                     getUsersFromServer={this.getUsersFromServer}
                 />
                 <h1>Users</h1>
-                <div class="columns is-multiline is-mobile">
-    
-                {userList(this.getAllUsers())}
-  </div>
+                <div className="userPreview">
+
+                    {userList(this.getAllUsers())}
+                </div>
             </div>
         </div>
     )

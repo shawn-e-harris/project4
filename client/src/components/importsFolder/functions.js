@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from 'react-router-dom'
 import 'bulma/css/bulma.css'
-import { SSL_OP_SINGLE_DH_USE } from "constants";
 
 let users = [];
 let bucketListItems = [];
@@ -9,15 +8,17 @@ let user = {}
 // this shows 1 user as option for select tag 
 
 const styling = {
+  UImage: {
+    height: "75px",
+  },
   userCard: {
     width: "300px",
     height: "125px",
-    margin: "50px",
+    margin: "30px 35px 30px 35px",
     borderRadius: "5pt"
   },
   BLImage: {
     height: "200px",
-
   },
   BLCard: {
     width: "250px",
@@ -35,14 +36,14 @@ const styling = {
 }
 
 const userPreview = (user) => (
-  <div class="card is-centered"
+  <div class="card is-grouped-centered"
     // User Card styling
     style={styling.userCard}>
     <div class="card-content">
         <div class="media">
           <div class="media-left">
             <figure class="image is-48x48">
-              <img src={user.picture} alt="Profile Image" />
+              <img style={styling.UImage} src={user.picture} alt="Profile Image" />
             </figure>
           </div>
           <div class="media-content">

@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import UApp from "./components/userFolder/UApp"
+import UApp from "./components/userFolder/UApps"
 import HomePage from "./components/CSS/HomePage"
 import SingleU from './components/userFolder/SingleU';
 import SingleBL from './components/bucketListFolder/SingleBL';

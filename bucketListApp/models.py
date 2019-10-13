@@ -6,7 +6,7 @@ default_bl = "https://images.unsplash.com/photo-1568323993144-20d546ba585d?ixlib
 
 class User(models.Model):
     # this is like schema in express IssueItemSchema = mongoose.Schema({description : String, done : Boolean})
-    userName = models.CharField(max_length=10)
+    userName = models.CharField(max_length=50)
     email = models.EmailField(max_length=50)
     picture = models.CharField(max_length=5000, default=default_u)
 

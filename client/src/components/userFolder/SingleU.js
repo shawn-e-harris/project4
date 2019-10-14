@@ -42,12 +42,10 @@ export default class SingleU extends React.Component {
         return (
             <div>
                 <nav class="breadcrumb" aria-label="breadcrumbs">
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/user">Users</a></li>
-    <li class="is-active"><a href={`/user/${this.state.user.userName}/`}>{this.state.user.userName}</a></li>
-  </ul>
-</nav>
+                    <ul>
+                        <li><a href="/user">Users</a></li>
+                    </ul>
+                </nav>
                 <BLForm {...this.props}
                     userId={this.state.user.id}
                 />
@@ -61,7 +59,8 @@ export default class SingleU extends React.Component {
                             </div>
                             <div class="media-content">
                                 <p class="title is-4">{this.state.user.userName}
-                                    <button onClick={this.handleDeleteUser}>Delete</button>
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                <a class="delete is-large" onClick={this.handleDeleteUser}></a>
                                 </p>
                                 <p class="subtitle is-6">{this.state.user.email}</p>
                             </div>

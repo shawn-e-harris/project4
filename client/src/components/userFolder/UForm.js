@@ -14,11 +14,11 @@ const initialState = {
 const styling = {
     form: {
         width: "300px",
-        margin: "0px 35px 0px 35px"
+        margin: "5px 35px 5px 35px"
     },
     button: {
         backgroundColor: "black",
-        margin: "0px 35px 0px 35px"
+        margin: "5px 35px 5px 35px"
     }
 }
 
@@ -52,9 +52,9 @@ export default class UForm extends React.Component {
     render = () => (
             <div class="control">
         <form onSubmit={this.handleSubmit}>
-            <input style={styling.form} class="input" type="text" name="userName" value={this.state.newUser.userName} onChange={this.handleInput} placeholder="User Name" />
-            <input style={styling.form} class="input" type="email" name="email" value={this.state.newUser.email} onChange={this.handleInput} placeholder="Email" />
-            <input style={styling.form} class="input" type="text" name="picture" value={this.state.newUser.picture} onChange={this.handleInput} placeholder="Picture" />
+            <input style={styling.form} class="input" type="text" name="userName" value={this.state.newUser.userName} onChange={this.handleInput} placeholder="User Name" required/>
+            <input style={styling.form} class="input" type="email" name="email" value={this.state.newUser.email} onChange={this.handleInput} placeholder="Email" required/>
+            <input style={styling.form} class="input" type="text" name="picture" value={this.state.newUser.picture} onChange={this.handleInput} placeholder="Picture" required/>
             <input style={styling.button} class="button is-primary" type="submit" value="New User" />
         </form>
   </div>

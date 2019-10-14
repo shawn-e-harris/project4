@@ -1,6 +1,7 @@
 import React from "react"
 import Axios from "axios"
 import UForm from "./UForm"
+import Navbar from "../CSS/navbar"
 import { userList } from "../importsFolder/functions"
 import 'bulma/css/bulma.css'
 
@@ -32,12 +33,14 @@ export default class UApp extends React.Component {
 
     render = () => (
         <div>
-            <nav class="breadcrumb" aria-label="breadcrumbs">
+            <Navbar/>
+            {/* <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li class="is-active"><a href="/user">Users</a></li>
-                </ul>
-            </nav>
+                    {/* <li class="is-active"><a href="/user">Users</a></li> */}
+                {/* </ul>
+            </nav> */} 
+            <br/>
             <div className='container'>
                 <UForm
                     getUsersFromServer={this.getUsersFromServer}

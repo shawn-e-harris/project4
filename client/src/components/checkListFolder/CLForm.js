@@ -12,10 +12,12 @@ const initialState = {
 
 const styling = {
     form: {
-        width: "300px"
+        width: "300px",
+        margin: "5px 35px 5px 35px"
     },
     button: {
-        backgroundColor: "black"
+        backgroundColor: "black",
+        margin: "5px 35px 5px 35px"
     }
 }
 

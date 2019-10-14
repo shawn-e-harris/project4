@@ -5,7 +5,7 @@ Moments for Life is a mobile Bucket List app. Each user can create an individual
 
 [**Deployed Site**](https://fathomless-fortress-40837.herokuapp.com)
 
-[**Project Board**](https://github.com/shawn-e-harris/project4.git)
+[**Project Board**](https://github.com/shawn-e-harris/project4/projects/1)
 
 
 ## Technologies Used:

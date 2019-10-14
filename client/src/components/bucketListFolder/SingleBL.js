@@ -3,6 +3,7 @@ import Axios from 'axios'
 import CLForm from "../checkListFolder/CLForm"
 import CLApp from "../checkListFolder/CLApp"
 import 'bulma/css/bulma.css'
+import Navbar from "../CSS/navbar"
 
 export default class SingleBL extends React.Component {
     state = {
@@ -35,7 +36,7 @@ export default class SingleBL extends React.Component {
     render() {
         return (
             <div>
-                {/* <Navbar/> */}
+                <Navbar/>
                 <nav class="breadcrumb" aria-label="breadcrumbs">
                     <ul>
                         <li><a href="/">Home</a></li>

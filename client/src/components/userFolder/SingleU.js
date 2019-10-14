@@ -48,6 +48,7 @@ export default class SingleU extends React.Component {
                         <li><a href="/user">Users</a></li>
                     </ul>
                 </nav> */}
+                <br/>
                 <BLForm {...this.props}
                     userId={this.state.user.id}
                 />

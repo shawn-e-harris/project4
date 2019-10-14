@@ -4,6 +4,7 @@ import UForm from "./UForm"
 import Navbar from "../CSS/navbar"
 import { userList } from "../importsFolder/functions"
 import 'bulma/css/bulma.css'
+import Sticky from "../CSS/sticky"
 
 const usersDiv = {
     fontSize: "35px",
@@ -58,6 +59,7 @@ export default class UApp extends React.Component {
                     {userList(this.getAllUsers())}
                 </div>
             {/* </div> */}
+            <Sticky/>
         </div>
     )
 }

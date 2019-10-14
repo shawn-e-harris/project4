@@ -24,7 +24,7 @@ const styling = {
     width: "250px",
     height: "275px",
     border: "solid black",
-    margin: "50px",
+    margin: "30px 75px 30px 75px",
     borderRadius: "5pt"
   },
   CLCard: {

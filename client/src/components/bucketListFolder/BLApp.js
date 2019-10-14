@@ -3,6 +3,10 @@ import Axios from "axios"
 import { bucketListItemList } from "../importsFolder/functions"
 import 'bulma/css/bulma.css'
 
+const blDiv = {
+    marginLeft: "25px"
+}
+
 export default class BLApp extends React.Component {
 
     state = {

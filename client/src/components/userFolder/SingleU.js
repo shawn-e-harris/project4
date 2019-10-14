@@ -43,13 +43,8 @@ export default class SingleU extends React.Component {
         }
         return (
             <div>
-                <Navbar/>
-                {/* <nav class="breadcrumb" aria-label="breadcrumbs">
-                    <ul>
-                        <li><a href="/user">Users</a></li>
-                    </ul>
-                </nav> */}
-                <br/>
+                <Navbar />
+                <br />
                 <BLForm {...this.props}
                     userId={this.state.user.id}
                 />
@@ -63,7 +58,7 @@ export default class SingleU extends React.Component {
                             </div>
                             <div class="media-content">
                                 <p class="title is-4">{this.state.user.userName}
-                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                 <a class="delete is-large" onClick={this.handleDeleteUser}></a>
                                 </p>
                                 <p class="subtitle is-6">{this.state.user.email}</p>
@@ -73,7 +68,7 @@ export default class SingleU extends React.Component {
                 </div>
                 <BLApp {...this.props}
                 />
-                <Sticky/>
+                <Sticky />
             </div>
         )
     }

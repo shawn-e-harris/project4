@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const userStyles = {
     textAlign: "left",
@@ -14,25 +14,13 @@ export default class Navbar extends React.Component {
         return (
             <div>
                 <nav>
-            <ul class="home">
-                <br/>
-                <Link style={userStyles} to="/">Home</Link>
-                &nbsp; &nbsp; 
-            {/* </ul>
-            <ul class="about"> */}
+                    <ul class="home">
+                        <br />
+                        <Link style={userStyles} to="/">Home</Link>
+                        &nbsp; &nbsp;
             <Link style={userStyles} to="/user" className="users">Users</Link>
-            </ul>
-            {/* <ul class="starring">
-                <a href="/pages/starring.html">Starring</a>
-                <a href="#"><li>Huey Freeman</li></a>
-                <a href="#"><li>Riley Freeman</li></a>
-                <a href="#"><li>Robert "Grandad" Freeman</li></a>
-                <a href="#"><li>Uncle Ruckus</li></a>
-            </ul>
-            <ul class="recentNews">
-                Recent News
-            </ul> */}
-        </nav>
+                    </ul>
+                </nav>
             </div>
         )
     }

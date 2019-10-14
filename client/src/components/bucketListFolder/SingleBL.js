@@ -37,16 +37,8 @@ export default class SingleBL extends React.Component {
     render() {
         return (
             <div>
-                <Navbar/>
-                {/* <nav class="breadcrumb" aria-label="breadcrumbs">
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/user">Users</a></li>
-                        {/* <li><a href={`/user/${user.userName}/`}>{user.userName}</a></li> */}
-                        {/* <li class="is-active"><a href={`/user/${this.state.bucketListItem.bucketListName}/`}>{this.state.bucketListItem.bucketListName}</a></li>
-                    </ul>
-                </nav> */} 
-                <br/>
+                <Navbar />
+                <br />
                 <CLForm {...this.props}
                     bucketId={this.state.bucketListItem.id}
                 />
@@ -68,7 +60,7 @@ export default class SingleBL extends React.Component {
                 </div>
                 <CLApp {...this.props}
                 />
-                <StickyCL/>
+                <StickyCL />
             </div>
         )
     }

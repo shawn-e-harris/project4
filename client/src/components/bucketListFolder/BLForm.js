@@ -53,9 +53,9 @@ export default class BLForm extends React.Component {
         // calls post req to pass state of newBucketListItem
         // path, data that's being posted
         Axios.post(`/api/bucketlistitem/`, payload)
-        .then(() => {
-            this.clearForm()
-            window.location.reload();
+            .then(() => {
+                this.clearForm()
+                window.location.reload();
             })
 
     }
@@ -63,8 +63,8 @@ export default class BLForm extends React.Component {
     render = () => (
         <div class="control">
             <form onSubmit={this.handleSubmit}>
-                <input style={styling.form} class="input" type="text" name="bucketListName" value={this.state.newBucketListItem.bucketListName} onChange={this.handleInput} placeholder="Bucket List Item Name" required/>
-                <input style={styling.form} class="input" type="text" name="picture" value={this.state.newBucketListItem.picture} onChange={this.handleInput} placeholder="Picture" required/>
+                <input style={styling.form} class="input" type="text" name="bucketListName" value={this.state.newBucketListItem.bucketListName} onChange={this.handleInput} placeholder="Bucket List Item Name" required />
+                <input style={styling.form} class="input" type="text" name="picture" value={this.state.newBucketListItem.picture} onChange={this.handleInput} placeholder="Picture" required />
                 <input style={styling.button} class="button is-primary" type="submit" value="New Bucket List Item" />
             </form>
         </div>

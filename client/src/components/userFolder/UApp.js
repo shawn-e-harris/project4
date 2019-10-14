@@ -42,14 +42,7 @@ export default class UApp extends React.Component {
     render = () => (
         <div>
             <Navbar/>
-            {/* <nav class="breadcrumb" aria-label="breadcrumbs">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    {/* <li class="is-active"><a href="/user">Users</a></li> */}
-                {/* </ul>
-            </nav> */} 
             <br/>
-            {/* <div className='container'> */}
                 <UForm
                     getUsersFromServer={this.getUsersFromServer}
                 />
@@ -58,7 +51,6 @@ export default class UApp extends React.Component {
 
                     {userList(this.getAllUsers())}
                 </div>
-            {/* </div> */}
             <Sticky/>
         </div>
     )

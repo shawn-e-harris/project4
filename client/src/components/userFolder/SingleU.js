@@ -2,6 +2,7 @@ import React from 'react'
 import Axios from 'axios'
 import BLForm from "../bucketListFolder/BLForm"
 import BLApp from '../bucketListFolder/BLApp'
+import Navbar from "../CSS/navbar"
 import { Redirect } from 'react-router-dom'
 import 'bulma/css/bulma.css'
 
@@ -41,11 +42,12 @@ export default class SingleU extends React.Component {
         }
         return (
             <div>
-                <nav class="breadcrumb" aria-label="breadcrumbs">
+                <Navbar/>
+                {/* <nav class="breadcrumb" aria-label="breadcrumbs">
                     <ul>
                         <li><a href="/user">Users</a></li>
                     </ul>
-                </nav>
+                </nav> */}
                 <BLForm {...this.props}
                     userId={this.state.user.id}
                 />

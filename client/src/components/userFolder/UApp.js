@@ -5,6 +5,13 @@ import Navbar from "../CSS/navbar"
 import { userList } from "../importsFolder/functions"
 import 'bulma/css/bulma.css'
 
+const usersDiv = {
+    fontSize: "35px",
+    textAlign: "center",
+    fontWeight: "900",
+    color: "black"
+}
+
 export default class UApp extends React.Component {
 
     state = {
@@ -41,16 +48,16 @@ export default class UApp extends React.Component {
                 {/* </ul>
             </nav> */} 
             <br/>
-            <div className='container'>
+            {/* <div className='container'> */}
                 <UForm
                     getUsersFromServer={this.getUsersFromServer}
                 />
-                <h1>Users</h1>
+                <h1 style={usersDiv}>Users</h1>
                 <div className="userPreview">
 
                     {userList(this.getAllUsers())}
                 </div>
-            </div>
+            {/* </div> */}
         </div>
     )
 }

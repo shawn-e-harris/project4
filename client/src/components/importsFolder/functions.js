@@ -27,10 +27,16 @@ const styling = {
     margin: "30px 75px 30px 75px",
     borderRadius: "5pt"
   },
+  BLName: {
+    fontSize: "20px",
+    display: "flex",
+    justifyContent: "center",
+    color: "black"
+  },
   CLCard: {
     width: "300px",
-    height: "75px",
-    margin: "50px",
+    height: "50px",
+    margin: "30px 40px ",
     borderRadius: "5pt"
   }
 }
@@ -75,7 +81,7 @@ const bucketListItemPreview = (bucketListItem) => (
       <div class="card-content">
         <div class="media">
           <div class="media-content">
-            <Link to={`/bucketlistitem/${bucketListItem.id}/`}>{bucketListItem.bucketListName}</Link>
+            <Link style={styling.BLName} to={`/bucketlistitem/${bucketListItem.id}/`}>{bucketListItem.bucketListName}</Link>
           </div>
         </div>
       </div>
@@ -100,8 +106,8 @@ const checkListItemPreview = (checkListItem) => (
       <div class="media">
         <div class="media-content">
           <p>{checkListItem.checkListName}</p>
-          <input class="radio" type="radio" name="status" value={checkListItem.status} />
-            Complete
+          {/* <input class="radio" type="radio" name="status" value={checkListItem.status} /> */}
+            {/* Complete */}
         </div>
       </div>
     </div>

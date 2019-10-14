@@ -1,7 +1,7 @@
 import React from 'react'
 import { Parallax } from "react-parallax"
 
-const imageBottom = "https://images.unsplash.com/photo-1494548162494-384bba4ab999?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80";
+const imageBottom = "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60";
 
 
 const bottomStyles = {
@@ -16,13 +16,13 @@ const bottomStyles = {
   fontSize: "30pt"
 };
 
-export default function Sticky() {
+export default function StickyCL() {
   return (
     <div>
       <div style={{ height: 50 }}></div>
       <Parallax bgImage={imageBottom} strength={500}>
         <div style={{ height: 500 }}>
-          <div style={bottomStyles}>CARPE DIAM</div>
+          <div style={bottomStyles}>TO DO</div>
         </div>
       </Parallax>
       <div style={{ height: 100 }}>

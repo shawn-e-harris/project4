@@ -44,7 +44,7 @@ export default class CLApp extends React.Component {
 
     render = () => (
         <div className='container'>
-            <h1>CheckListItems</h1>
+            {/* <h1>CheckListItems</h1> */}
             {checkListItemList(this.getAllCheckListItems())}
         </div>
     )

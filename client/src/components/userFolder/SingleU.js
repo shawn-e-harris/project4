@@ -5,6 +5,7 @@ import BLApp from '../bucketListFolder/BLApp'
 import Navbar from "../CSS/navbar"
 import { Redirect } from 'react-router-dom'
 import 'bulma/css/bulma.css'
+import Sticky from "../CSS/sticky"
 
 export default class SingleU extends React.Component {
     state = {
@@ -62,7 +63,7 @@ export default class SingleU extends React.Component {
                             </div>
                             <div class="media-content">
                                 <p class="title is-4">{this.state.user.userName}
-                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
                                 <a class="delete is-large" onClick={this.handleDeleteUser}></a>
                                 </p>
                                 <p class="subtitle is-6">{this.state.user.email}</p>
@@ -72,6 +73,7 @@ export default class SingleU extends React.Component {
                 </div>
                 <BLApp {...this.props}
                 />
+                <Sticky/>
             </div>
         )
     }

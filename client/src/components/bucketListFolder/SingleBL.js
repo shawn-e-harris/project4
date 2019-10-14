@@ -4,7 +4,7 @@ import CLForm from "../checkListFolder/CLForm"
 import CLApp from "../checkListFolder/CLApp"
 import 'bulma/css/bulma.css'
 import Navbar from "../CSS/navbar"
-import Sticky from "../CSS/sticky"
+import StickyCL from "../CSS/stickyCL"
 
 export default class SingleBL extends React.Component {
     state = {
@@ -68,7 +68,7 @@ export default class SingleBL extends React.Component {
                 </div>
                 <CLApp {...this.props}
                 />
-                <Sticky/>
+                <StickyCL/>
             </div>
         )
     }

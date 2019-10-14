@@ -1,4 +1,4 @@
-# Sei23-Project4
+# SEI23-Project4
 ## Moments for Life
 
 Moments for Life is a mobile Bucket List app. Each user can create an individual profile and add items they wish to complete. Within each Bucket List Item is a checklist for what is needed to complete the Bucket List Item.

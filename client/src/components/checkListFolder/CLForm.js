@@ -61,7 +61,7 @@ export default class CLForm extends React.Component {
     render = () => (
         <div class="control">
         <form onSubmit={this.handleSubmit}>
-            <input style={styling.form} class="input" type="text" name="checkListName" value={this.state.newCheckListItem.checkListName} onChange={this.handleInput} placeholder="Check List Item Name" />
+            <input style={styling.form} class="input" type="text" name="checkListName" value={this.state.newCheckListItem.checkListName} onChange={this.handleInput} placeholder="Check List Item Name" required/>
             <input style={styling.button} class="button is-primary" type="submit" value="New Check List Item" />
         </form>
         </div>

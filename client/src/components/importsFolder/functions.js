@@ -60,9 +60,8 @@ const userPreview = (user) => (
       </div>
     </div>
 )
-
 const userList = (users) => (
-  <p>
+  <p class="containers">
     {users.map(userPreview)}
   </p>
 )
@@ -91,7 +90,7 @@ const bucketListItemPreview = (bucketListItem) => (
 
 // displays array of bucketListItems
 const bucketListItemList = (bucketListItems) => (
-  <p>
+  <p class="containers">
     {bucketListItems.map(bucketListItemPreview)}
   </p>
 )
@@ -116,7 +115,7 @@ const checkListItemPreview = (checkListItem) => (
 
 // displays array of checkListItems
 const checkListItemList = (checkListItems) => (
-  <ul>
+  <ul class="containers">
     {checkListItems.map(checkListItemPreview)}
   </ul>
 )
